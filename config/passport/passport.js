@@ -43,9 +43,7 @@ module.exports = (passport, user) => {
             var userPassword = generateHash(password);
             var data = {
               email: email,
-              password: userPassword,
-              firstname: req.body.firstname,
-              lastname: req.body.lastname
+              password: userPassword
             };
 
             User.create(data).then((newUser, created) => {
@@ -63,9 +61,9 @@ module.exports = (passport, user) => {
     )
   );
 
-  //LOCAL SIGNIN
+  //LOCAL LOGIN
   passport.use(
-    'local-signin',
+    'local-login',
     new LocalStrategy(
       {
         // by default, local strategy uses username and password, we will override with email
@@ -99,7 +97,7 @@ module.exports = (passport, user) => {
             console.log('Error:', err);
 
             return done(null, false, {
-              message: 'Something went wrong with your Signin'
+              message: 'Something went wrong with your login'
             });
           });
       }
