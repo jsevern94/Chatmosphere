@@ -1,0 +1,27 @@
+{
+  "name": "AUTHtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "*",
+    "body-parser": "*",
+    "dotenv": "*",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-session": "*",
+    "mysql2": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "sequelize": "*",
+    "sequelize-cli": "*",
+    "socket.io": "*"
+  }
+}
