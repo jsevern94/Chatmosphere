@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const passport = require('passport');
 const session = require('express-session');
+var flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const env = require('dotenv').load();
 const exphbs = require('express-handlebars');
@@ -20,6 +21,8 @@ app.use(
 ); // session secret
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
 
 // Handlebars
 const viewsPath = path.join(__dirname, 'views');
