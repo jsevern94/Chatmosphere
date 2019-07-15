@@ -2,6 +2,10 @@ module.exports = (app, passport) => {
     app.get('/', (req, res) => {
       res.render('index');
     });
+
+    app.get('/tellusmore', (req, res) => {
+      res.render('tellusmore');
+    })
   
     app.get('/signup-fail', (req, res) => {
       res.render('signup', {
@@ -22,7 +26,7 @@ module.exports = (app, passport) => {
     app.post(
       '/signup',
       passport.authenticate('local-signup', {
-        successRedirect: '/home',
+        successRedirect: '/tellusmore',
         failureRedirect: '/signup-fail',
         failureFlash: true
 
