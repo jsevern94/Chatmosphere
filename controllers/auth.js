@@ -3,13 +3,13 @@ module.exports = (app, passport) => {
       res.render('index');
     });
   
-    app.get('/signup', (req, res) => {
+    app.get('/signup-fail', (req, res) => {
       res.render('signup', {
         message: req.flash('error')
       });
     });
   
-    app.get('/login', (req, res) => {
+    app.get('/login-fail', (req, res) => {
       res.render('login', {
         message: req.flash('error')
       });
@@ -23,7 +23,7 @@ module.exports = (app, passport) => {
       '/signup',
       passport.authenticate('local-signup', {
         successRedirect: '/home',
-        failureRedirect: '/signup',
+        failureRedirect: '/signup-fail',
         failureFlash: true
 
       })
@@ -43,7 +43,7 @@ module.exports = (app, passport) => {
       '/login',
       passport.authenticate('local-login', {
         successRedirect: '/home',
-        failureRedirect: '/login',
+        failureRedirect: '/login-fail',
         failureFlash: true
       })
     );
