@@ -4,7 +4,6 @@ const Op = db.Sequelize.Op;
 module.exports = (app, passport) => {
   app.get('/', (req, res) => {
     res.render('index');
-    console.log(db.user)
   });
 
   app.get('/tellusmore', (req, res) => {
@@ -40,7 +39,7 @@ module.exports = (app, passport) => {
       where: {
         [Op.or]: [{sender: req.user.username, receiver: req.params.userid}, {sender: req.params.userid, receiver: req.user.username}]
       },
-      order: [['updatedAt', 'DESC']]
+      order: [['createdAt', 'DESC']]
     }).then(function(result) {
       return res.json(result);
     });
