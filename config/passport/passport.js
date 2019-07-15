@@ -29,18 +29,19 @@ module.exports = (passport, user) => {
         passReqToCallback: true // allows us to pass back the entire request to the callback
       },
 
-      function(req, username, password, done, password2) {
+      function(req, username, password, done) {
         var generateHash = password => {
           return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
         };
-
+        console.log(req.body.password)
+        console.log(req.body.password2)
         User.findOne({ where: { username: username } }).then(user => {
           if (user) {
             return done(null, false, {
               message: "That username is already taken"
             });
           }
-          else if (password !== password2) {
+          else if (req.body.password !== req.body.password2) {
             return done(null, false, {
               message: "Passwords don't match"
             });
