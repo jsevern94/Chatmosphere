@@ -9,7 +9,9 @@ const env = require('dotenv').load();
 const exphbs = require('express-handlebars');
 //chat madules
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var io = require('socket.io')(http, {
+  pingInterval: 500
+});
 
 // BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -56,10 +58,10 @@ require('./config/passport/passport.js')(passport, models.user);
 io.on('connection', function (socket) {
   console.log('a user connected on socket: ' + socket.id);
   socket.on('chat message', function (msg) {
-      io.emit('chat message', msg);
+    io.emit('chat message', msg);
   });
   socket.on('disconnect', function () {
-      console.log('user disconnected from socket ' + socket.id);
+    console.log('user disconnected from socket ' + socket.id);
 
   });
 });
@@ -67,14 +69,16 @@ io.on('connection', function (socket) {
 // Sync Database
 models.sequelize
   .sync()
-  .then(function() {
+  .then(function () {
     console.log('Database Connected');
 
-    http.listen(3000, function(err) {
+    http.listen(3000, function (err) {
       if (!err) console.log('Connected at http://localhost:3000');
       else console.log(err);
     });
   })
-  .catch(function(err) {
+  .catch(function (err) {
     console.log(err, 'Error on Database Sync. Please try again!');
   });
+
+module.exports = app;
