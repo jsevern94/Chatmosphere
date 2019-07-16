@@ -2,48 +2,28 @@ var db = require("../models");
 const Op = db.Sequelize.Op;
 
 module.exports = (app, passport) => {
+
   app.get('/', (req, res) => {
     res.render('index');
   });
 
-  app.get('/tellusmore', (req, res) => {
-    res.render('tellusmore');
-  })
+  app.post(
+    '/login',
+    passport.authenticate('local-login', {
+      successRedirect: '/home',
+      failureRedirect: '/login-fail',
+      failureFlash: true
+    })
+  );
 
-
-  app.put("/api/tellusmore", function (req, res, next) {
-
-    db.user.update({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      about: req.body.bio,
-      email: req.body.email
-    }, {
-        where: {
-          username: req.user.username
-        }
-      }).then(function (dbUser) {
-        res.json(dbUser);
-      }).catch(function (err) {
-        res.json(err);
-        next();
-      });
-  });
-
-  app.get('/chat', (req, res)=> {
-    res.render('chat');
-  })
-
-  app.get('/api/chat/:userid', (req, res) => {
-    db.message.findAll({
-      where: {
-        [Op.or]: [{sender: req.user.username, receiver: req.params.userid}, {sender: req.params.userid, receiver: req.user.username}]
-      },
-      order: [['createdAt', 'DESC']]
-    }).then(function(result) {
-      return res.json(result);
-    });
-  })
+  app.post(
+    '/signup',
+    passport.authenticate('local-signup', {
+      successRedirect: '/tellusmore',
+      failureRedirect: '/signup-fail',
+      failureFlash: true
+    })
+  );
 
   app.get('/signup-fail', (req, res) => {
     res.render('signup', {
@@ -57,18 +37,64 @@ module.exports = (app, passport) => {
     });
   });
 
-  app.post(
-    '/signup',
-    passport.authenticate('local-signup', {
-      successRedirect: '/tellusmore',
-      failureRedirect: '/signup-fail',
-      failureFlash: true
+  app.get('/tellusmore', (req, res) => {
+    res.render('tellusmore');
+  })
 
-    })
-  );
+  app.put("/api/tellusmore", function (req, res, next) {
+
+    db.user.update({
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      about: req.body.bio,
+      email: req.body.email
+    }, {
+        where: {
+          username: req.user.username
+        }
+      }).then(function (req, res) {
+        res.json(req.user.username);
+      }).catch(function (err) {
+        res.json(err);
+        next();
+      });
+  });
 
   app.get('/home', isLoggedIn, (req, res) => {
-    res.render('home');
+    res.render('home', {
+      user: req.user.username
+    });
+    console.log(req.user);
+  });
+
+  app.get('/chat/:userid', (req, res)=> {
+    res.render('chat', {
+      partner: req.params.userid,
+      user: req.user.username
+    });
+  })
+
+  app.get('/api/chat/:userid', (req, res) => {
+    db.message.findAll({
+      where: {
+        [Op.or]: [{sender: req.user.username, receiver: req.params.userid}, {sender: req.params.userid, receiver: req.user.username}]
+      },
+      order: [['createdAt', 'ASC']]
+    }).then(function(result) {
+      return res.json(result);
+    });
+  })
+
+  app.post('/api/messages', function (req, res) {
+    db.message.create({
+      sender: req.body.sender,
+      receiver: req.body.receiver,
+      content: req.body.content
+    }).then(function(dbTodo) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbTodo);
+    });
+
   });
 
   app.get('/logout', (req, res) => {
@@ -77,18 +103,9 @@ module.exports = (app, passport) => {
     });
   });
 
-  app.post(
-    '/login',
-    passport.authenticate('local-login', {
-      successRedirect: '/home',
-      failureRedirect: '/login-fail',
-      failureFlash: true
-    })
-  );
-
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
 
-    res.redirect('/login');
+    res.redirect('/login-fail');
   }
 };

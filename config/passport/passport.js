@@ -47,7 +47,6 @@ module.exports = (passport, user) => {
             });
           }
           else {
-
             var userPassword = generateHash(password);
             var data = {
               username: username,
