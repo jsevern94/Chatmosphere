@@ -52,8 +52,8 @@ module.exports = (app, passport) => {
         where: {
           username: req.user.username
         }
-      }).then(function (req, res) {
-        res.json(req.user.username);
+      }).then(function (dbUser) {
+        res.json(dbUser);
       }).catch(function (err) {
         res.json(err);
         next();
