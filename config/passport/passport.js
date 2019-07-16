@@ -6,12 +6,12 @@ module.exports = (passport, user) => {
   const LocalStrategy = require('passport-local').Strategy;
 
   passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.username);
   });
 
   // used to deserialize the user
-  passport.deserializeUser((id, done) => {
-    User.findById(id).then(user => {
+  passport.deserializeUser((username, done) => {
+    User.findById(username).then(user => {
       if (user) {
         done(null, user.get());
       } else {
@@ -24,25 +24,33 @@ module.exports = (passport, user) => {
     'local-signup',
     new LocalStrategy(
       {
-        usernameField: 'email',
+        usernameField: 'username',
         passwordField: 'password',
         passReqToCallback: true // allows us to pass back the entire request to the callback
       },
 
-      function(req, email, password, done) {
+      function(req, username, password, done) {
         var generateHash = password => {
           return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
         };
-
-        User.findOne({ where: { email: email } }).then(user => {
+        console.log(req.body.password)
+        console.log(req.body.password2)
+        User.findOne({ where: { username: username } }).then(user => {
           if (user) {
             return done(null, false, {
-              message: 'That email is already taken'
+              message: "That username is already taken"
             });
-          } else {
+          }
+          else if (req.body.password !== req.body.password2) {
+            return done(null, false, {
+              message: "Passwords don't match"
+            });
+          }
+          else {
+
             var userPassword = generateHash(password);
             var data = {
-              email: email,
+              username: username,
               password: userPassword
             };
 
@@ -67,26 +75,26 @@ module.exports = (passport, user) => {
     new LocalStrategy(
       {
         // by default, local strategy uses username and password, we will override with email
-        usernameField: 'email',
+        usernameField: 'username',
         passwordField: 'password',
         passReqToCallback: true // allows us to pass back the entire request to the callback
       },
 
-      function(req, email, password, done) {
+      function(req, username, password, done) {
         var User = user;
 
         var isValidPassword = (userpass, password) => {
           return bCrypt.compareSync(password, userpass);
         };
 
-        User.findOne({ where: { email: email } })
+        User.findOne({ where: { username: username } })
           .then(user => {
             if (!user) {
-              return done(null, false, { message: 'Email does not exist' });
+              return done(null, false, { message: 'Username does not exist' });
             }
 
             if (!isValidPassword(user.password, password)) {
-              return done(null, false, { message: 'Incorrect password.' });
+              return done(null, false, { message: 'Incorrect password, try again!' });
             }
 
             var userinfo = user.get();
