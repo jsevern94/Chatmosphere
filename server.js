@@ -7,7 +7,7 @@ var flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const env = require('dotenv').load();
 const exphbs = require('express-handlebars');
-//chat madules
+//chat
 var http = require('http').Server(app);
 var io = require('socket.io')(http, {
   pingInterval: 500
