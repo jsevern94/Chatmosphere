@@ -2,14 +2,44 @@ var db = require("../models");
 const Op = db.Sequelize.Op;
 
 module.exports = (app, passport) => {
+
   app.get('/', (req, res) => {
     res.render('index');
+  });
+
+  app.post(
+    '/login',
+    passport.authenticate('local-login', {
+      successRedirect: '/home',
+      failureRedirect: '/login-fail',
+      failureFlash: true
+    })
+  );
+
+  app.post(
+    '/signup',
+    passport.authenticate('local-signup', {
+      successRedirect: '/tellusmore',
+      failureRedirect: '/signup-fail',
+      failureFlash: true
+    })
+  );
+
+  app.get('/signup-fail', (req, res) => {
+    res.render('signup', {
+      message: req.flash('error')
+    });
+  });
+
+  app.get('/login-fail', (req, res) => {
+    res.render('login', {
+      message: req.flash('error')
+    });
   });
 
   app.get('/tellusmore', (req, res) => {
     res.render('tellusmore');
   })
-
 
   app.put("/api/tellusmore", function (req, res, next) {
 
@@ -30,8 +60,18 @@ module.exports = (app, passport) => {
       });
   });
 
-  app.get('/chat', (req, res)=> {
-    res.render('chat');
+  app.get('/home', isLoggedIn, (req, res) => {
+    res.render('home', {
+      user: req.user.username
+    });
+    console.log(req.user);
+  });
+
+  app.get('/chat/:userid', (req, res)=> {
+    res.render('chat', {
+      partner: req.params.userid,
+      user: req.user.username
+    });
   })
 
   app.get('/api/chat/:userid', (req, res) => {
@@ -39,36 +79,22 @@ module.exports = (app, passport) => {
       where: {
         [Op.or]: [{sender: req.user.username, receiver: req.params.userid}, {sender: req.params.userid, receiver: req.user.username}]
       },
-      order: [['createdAt', 'DESC']]
+      order: [['createdAt', 'ASC']]
     }).then(function(result) {
       return res.json(result);
     });
   })
 
-  app.get('/signup-fail', (req, res) => {
-    res.render('signup', {
-      message: req.flash('error')
+  app.post('/api/messages', function (req, res) {
+    db.message.create({
+      sender: req.body.sender,
+      receiver: req.body.receiver,
+      content: req.body.content
+    }).then(function(dbTodo) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbTodo);
     });
-  });
 
-  app.get('/login-fail', (req, res) => {
-    res.render('login', {
-      message: req.flash('error')
-    });
-  });
-
-  app.post(
-    '/signup',
-    passport.authenticate('local-signup', {
-      successRedirect: '/tellusmore',
-      failureRedirect: '/signup-fail',
-      failureFlash: true
-
-    })
-  );
-
-  app.get('/home', isLoggedIn, (req, res) => {
-    res.render('home');
   });
 
   app.get('/logout', (req, res) => {
@@ -77,18 +103,9 @@ module.exports = (app, passport) => {
     });
   });
 
-  app.post(
-    '/login',
-    passport.authenticate('local-login', {
-      successRedirect: '/home',
-      failureRedirect: '/login-fail',
-      failureFlash: true
-    })
-  );
-
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
 
-    res.redirect('/login');
+    res.redirect('/login-fail');
   }
 };

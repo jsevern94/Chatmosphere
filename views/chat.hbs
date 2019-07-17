@@ -1,31 +1,62 @@
-<ul id="messages"></ul>
+<div id="messages"></div>
 <form action="" id="chat">
     <input id="m" autocomplete="off" /><button>Send</button>
 </form>
+<p class="text-left text-right bg-green-200 bg-blue-200 border-b border-black"></p>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
     $(document).ready(function () {
 
+        var messages = [];
 
-        $.get("/api/chat/user2", function (data) {
-            console.log(data);
-        })
+        var user = '{{{user}}}'
 
+        var partner = '{{{partner}}}'
 
+        getMessages();
 
+        function initializeMessages(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].sender.toLowerCase() == user.toLowerCase()) {
+                    $('#messages').append($('<div>').text(arr[i].content).addClass('text-right bg-green-200 border-b border-black'));
+                }
+                else if (arr[i].sender.toLowerCase() == partner.toLowerCase()) {
+                    $('#messages').append($('<div>').text(arr[i].content).addClass('text-left bg-blue-200 border-b border-black'));
+                }
+            }
+        }
 
+        function getMessages() {
+            $.get("/api/chat/" + partner, function (data) {
+                messages = data;
+                initializeMessages(messages);
+            });
+        }
 
         $(function () {
             var socket = io();
             $('form').submit(function () {
-                socket.emit('chat message', $('#m').val());
+                var messageData = {
+                    sender: user,
+                    receiver: partner,
+                    content: $('#m').val().trim(),
+                }
+
+                socket.emit('chat message', messageData);
+                $.post('/api/messages', messageData);
                 $('#m').val('');
                 return false;
             });
             socket.on('chat message', function (msg) {
-                $('#messages').append($('<li>').text(msg));
-                window.scrollTo(0, document.body.scrollHeight);
+                if ((msg.sender.toLowerCase() == user.toLowerCase() && msg.receiver.toLowerCase() == partner.toLowerCase())) {
+                    $('#messages').append($('<div>').text(msg.content).addClass('text-right bg-green-200 border-b border-black'));
+                    window.scrollTo(0, document.body.scrollHeight);
+                }
+                else if ((msg.sender.toLowerCase() == partner.toLowerCase() && msg.receiver.toLowerCase() == user.toLowerCase())) {
+                    $('#messages').append($('<div>').text(msg.content).addClass('text-left bg-blue-200 border-b border-black'));
+                    window.scrollTo(0, document.body.scrollHeight);
+                }
             });
         });
     })
