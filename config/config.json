@@ -1,12 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "yourRootPassword",
-    "database": "Auth_db",
-    "host": "localhost",
+    "use_env_variable": "DB_DEV",
     "dialect": "mysql",
     "operatorsAliases": false
   },
+
   "test": {
     "username": "root",
     "password": null,
