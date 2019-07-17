@@ -17,7 +17,23 @@
             <ul id="about"></ul>
           </div>
           <a href="#" class="btn btn-primary">Edit Profile</a>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <h2>Chat Users</h2>
+              {{#each users}}
+              <ul>
+                {{this.user}}
+                <form action="/chat/{{this.user}}">
+                  <input type=" hidden" name="chat" id="chatting">
+                  <button class="btn-primary" type="submit" id="Chat">Chat!</button>
+                </form>
+              </ul>
+              {{/each}}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

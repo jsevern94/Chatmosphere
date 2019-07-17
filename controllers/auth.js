@@ -64,23 +64,22 @@ module.exports = (app, passport) => {
     res.render('home', {
       user: req.user.username
     });
-    console.log(req.user);
   });
 
-  app.get('/chat/:userid', (req, res)=> {
+  app.get('/chat/:userid', (req, res) => {
     res.render('chat', {
       partner: req.params.userid,
-      user: req.user.username
+      user: req.user.userid
     });
   })
 
   app.get('/api/chat/:userid', (req, res) => {
     db.message.findAll({
       where: {
-        [Op.or]: [{sender: req.user.username, receiver: req.params.userid}, {sender: req.params.userid, receiver: req.user.username}]
+        [Op.or]: [{ sender: req.user.userid, receiver: req.params.userid }, { sender: req.params.userid, receiver: req.user.userid }]
       },
       order: [['createdAt', 'ASC']]
-    }).then(function(result) {
+    }).then(function (result) {
       return res.json(result);
     });
   })
@@ -90,8 +89,9 @@ module.exports = (app, passport) => {
       sender: req.body.sender,
       receiver: req.body.receiver,
       content: req.body.content
-    }).then(function(dbTodo) {
-      // We have access to the new todo as an argument inside of the callback function
+    }).then(function (dbTodo) {
+      // We have access to the new todo as an argument inside of 
+      // the callback function
       res.json(dbTodo);
     });
 
