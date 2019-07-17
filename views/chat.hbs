@@ -49,10 +49,6 @@
                 return false;
             });
             socket.on('chat message', function (msg) {
-                console.log(msg.sender)
-                console.log(msg.receiver)
-                console.log(user)
-                console.log(partner)
                 if ((msg.sender.toLowerCase() == user.toLowerCase() && msg.receiver.toLowerCase() == partner.toLowerCase())) {
                     $('#messages').append($('<div>').text(msg.content).addClass('text-right bg-green-200 border-b border-black'));
                     window.scrollTo(0, document.body.scrollHeight);
