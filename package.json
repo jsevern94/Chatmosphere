@@ -18,7 +18,7 @@
     "body-parser": "*",
     "connect-flash": "^0.1.1",
     "cssnano": "^4.1.10",
-    "dotenv": "*",
+    "dotenv": "^8.0.0",
     "express": "*",
     "express-handlebars": "*",
     "express-session": "*",

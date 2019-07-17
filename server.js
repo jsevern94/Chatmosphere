@@ -5,7 +5,7 @@ const passport = require('passport');
 const session = require('express-session');
 var flash = require('connect-flash');
 const bodyParser = require('body-parser');
-const env = require('dotenv').load();
+require('dotenv').config();
 const exphbs = require('express-handlebars');
 //chat
 var http = require('http').Server(app);
@@ -14,12 +14,18 @@ var io = require('socket.io')(http, {
 });
 
 // BodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 
 // Passport
 app.use(
-  session({ secret: 'rHUyjs6RmVOD06OdOTsVAyUUCxVXaWci', resave: true, saveUninitialized: true })
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true
+  })
 ); // session secret
 app.use(passport.initialize());
 app.use(passport.session());
