@@ -44,13 +44,13 @@ module.exports = (app, passport) => {
   app.put("/api/tellusmore", function (req, res, next) {
 
     db.user.update({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       about: req.body.bio,
       email: req.body.email
     }, {
         where: {
-          username: req.user.username
+          userName: req.user.userName
         }
       }).then(function (dbUser) {
         res.json(dbUser);
@@ -62,7 +62,11 @@ module.exports = (app, passport) => {
 
   app.get('/home', isLoggedIn, (req, res) => {
     res.render('home', {
-      user: req.user.username
+      userName: req.user.userName,
+      email: req.user.email,
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+      about: req.user.about
     });
   });
 

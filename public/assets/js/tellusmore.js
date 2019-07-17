@@ -3,8 +3,8 @@ $(document).ready(function () {
     $(document).on("click", "#submit", function (e) {
         e.preventDefault();
         var userData = {
-            firstname: $("#firstname").val().trim(),
-            lastname: $("#lastname").val().trim(),
+            firstName: $("#firstname").val().trim(),
+            lastName: $("#lastname").val().trim(),
             email: $("#email").val().trim(),
             bio: $("#bio").val().trim(),
         }
