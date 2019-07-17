@@ -58,7 +58,7 @@ require('./config/passport/passport.js')(passport, models.user);
 io.on('connection', function (socket) {
   console.log('a user connected on socket: ' + socket.id);
   socket.on('chat message', function (msg) {
-    io.emit('chat message', msg);
+    io.emit('new message', msg);
   });
   socket.on('disconnect', function () {
     console.log('user disconnected from socket ' + socket.id);
