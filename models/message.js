@@ -3,7 +3,7 @@ module.exports = (sequelize, Sequelize) => {
         id: { autoIncrement: true, primaryKey: true, type: Sequelize.INTEGER, allowNull: false },
         sender: { type: Sequelize.STRING, allowNull: false },
         receiver: { type: Sequelize.STRING, allowNull: false },
-        content: { type: Sequelize.TEXT, allowNull: false },
+        content: { type: Sequelize.TEXT, allowNull: false }
     });
 
     return Message;

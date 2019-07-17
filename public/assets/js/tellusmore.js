@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
-    $(document).on("submit", "#tellusmore", function () {
+    $(document).on("click", "#submit", function (e) {
+        e.preventDefault();
         var userData = {
             firstname: $("#firstname").val().trim(),
             lastname: $("#lastname").val().trim(),
@@ -16,8 +17,10 @@ $(document).ready(function () {
             method: "PUT",
             url: "/api/tellusmore",
             data: newData
-        }).then(function () {
-            window.location.href = '/home';
+        }).then(function (req, res) {
+            console.log(res)
+            try { window.location.replace("/home"); }
+            catch (e) { window.location = "/home"; }
         })
     }
 })
