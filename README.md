@@ -48,9 +48,7 @@
 > This update enhances the usability of the application by employing a survey and matching algorithm .
 
 - [ ] Enables users to match with another individual based on the their tapered survey questions .
-- [ ] Release of a matching algorithm .
-
-
+- [ ] Addition of a matching algorithm .
 
 
 ## Install
@@ -60,11 +58,26 @@ npm install
 ```
 
 
-## Author
+## Developers
 
-👤 **a**
+👤 **Jonah**
+
+* Github: [@jsevern94](https://github.com/jsevern94)
+
+
+👤 **Katherine**
+
+* Github: [@karmitage](https://github.com/karmitage)
+
+
+👤 **Zia**
+
+* Github: [@ziakeb](https://github.com/ziakeb)
+
+👤 **Raphael**
 
 * Github: [@archivecoderzero](https://github.com/archivecoderzero)
+
 
 ## 🤝 Contributing
 
@@ -77,5 +90,3 @@ Feel free to check [issues page](a).
 Give a ⭐️ if this project helped you!
 
 
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
