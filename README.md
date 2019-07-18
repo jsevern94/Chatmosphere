@@ -24,6 +24,11 @@
 
 ### 🌱 Version 1.0 Release Notes :
 
+## This is the summary of the MVP (Minimum Viable Product) for the application:
+
+- [x] Created an authentication for users to sign-up
+- [x] Create a chat application that enables communication between two users
+
 
 
 
