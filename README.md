@@ -1,9 +1,14 @@
-# 🌍 Welcome to Chatmosphere 🚀
+<p align="center">
+
+<h1>🌍 Welcome to Chatmosphere 🚀</h1>
+
+</p>
+
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](a)
 
 <p align="center">
-  <img width="460" height="300" src="https://cdn1.vectorstock.com/i/1000x1000/38/05/chat-talk-communication-logo-vector-19963805.jpg">
+  <img src="https://www.pngkey.com/png/detail/82-824287_live-chat-live-chat-logo-png.png">
 </p>
 
 ### Chatmosphere enables a seamless communication using the latest web technology. It is a stand-alone web application that runs using the technology called Socket Io, themost cutting edge in peer to peer communication using NodeJs . Chatmosphere works like your regular chatapplication with one key twist! Your identities are not revealed in the first few messages , only whenyou chose to connect to the stranger and if its mutual is when your identities will be revealed 
