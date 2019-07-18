@@ -1,4 +1,4 @@
-# 🌍 Welcome to Chatmosphere 🚀
+<p align="center"> # 🌍 Welcome to Chatmosphere 🚀</p>
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](a)
 
@@ -31,18 +31,24 @@
 
 > Our vision for the application is to set it apart among the ranks of chat application already in the market. We want to create an application that will solve a pain-point for users who want to connect with another individual who has the same interest and for the decision to be **mutual** . To enable the developers vision of the application the following updates should be accomplished :
 
-### 🚀 Release 1.2
+### 🚀 Release 2
 > This release would be the addition of the basic elements and functionality of a social app
 
 - [ ] Ability to add to friendslist
 - [ ] Ability to upload and edit profile pictures
 
 
-### 🚀 Release 1.2
+### 🚀 Release 3
 > This release would would be the main platform that sets the chat application apart. 
 
 - [ ] Enable a "chat with random" within the application 
 - [ ] Enable masking of the identities on "get to know" phase .
+
+### 🚀 Release 4
+> This update enhances the usability of the application by employing a survey and matching algorithm .
+
+- [ ] Enables users to match with another individual based on the their tapered survey questions .
+- [ ] Release of a matching algorithm .
 
 
 
