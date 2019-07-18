@@ -1,8 +1,5 @@
-<p align="center">
 
-<h1>🌍 Welcome to Chatmosphere 🚀</h1>
-
-</p>
+<h1 align="center">🌍 Welcome to Chatmosphere 🚀</h1>
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](a)
@@ -11,15 +8,14 @@
   <img src="https://www.pngkey.com/png/detail/82-824287_live-chat-live-chat-logo-png.png">
 </p>
 
-### Chatmosphere enables a seamless communication using the latest web technology. It is a stand-alone web application that runs using the technology called Socket Io, themost cutting edge in peer to peer communication using NodeJs . Chatmosphere works like your regular chatapplication with one key twist! Your identities are not revealed in the first few messages , only whenyou chose to connect to the stranger and if its mutual is when your identities will be revealed 
-
-## 🏠 [Homepage](https://github.com/ziakeb/project_chatmosphere/)
-
 ## 📝 Description 
+### Chatmosphere enables a seamless communication using the latest web technology. It is a stand-alone web application that runs using the technology called Socket Io, themost cutting edge in peer to peer communication using NodeJs . Chatmosphere works like your regular chatapplication with one key twist! Your identities are not revealed in the first few messages , only whenyou chose to connect to the stranger and if its mutual is when your identities will be revealed 
 
 > We created a chat application (using web sockets) that allows users to send private messages to each other.
 
 > You can share information about yourself, create a friends list, & chat strangers.
+
+## 📺 [Homepage](https://benefique-mandarine-57884.herokuapp.com/)
 
 ## ✔️ Motivation  
 
@@ -28,6 +24,19 @@
 > We won’t give your data to the NSA (on purpose).
 
 > We also wanted to challenge ourselves by using new technologies. Using web sockets is conceptually different than client/server request/response networking. Tailwind CSS is…..
+
+## ▶️ Preview 
+
+> Login Page : 
+<p align="center">
+  <img src="https://media0.giphy.com/media/3o6fJ66RKYXJbkQ1RC/giphy.gif">
+</p>
+
+> Chat Page  : 
+<p align="center">
+  <img src="https://media0.giphy.com/media/3o6fJ66RKYXJbkQ1RC/giphy.gif">
+</p>
+
 
 ## 🌱 Version 1.0 Release Notes :
 
@@ -46,7 +55,6 @@
 - [ ] Ability to add to friendslist
 - [ ] Ability to upload and edit profile pictures
 
-
 ### 🚀 Release 3
 > This release would would be the main platform that sets the chat application apart. 
 
@@ -59,14 +67,13 @@
 - [ ] Enables users to match with another individual based on the their tapered survey questions .
 - [ ] Addition of a matching algorithm .
 
+## 📺 [View Source Code Here](https://github.com/ziakeb/project_chatmosphere/)
 
 ## Install
 
 ```sh
 npm install
 ```
-
-
 ## Developers
 
 👤 **Jonah**
