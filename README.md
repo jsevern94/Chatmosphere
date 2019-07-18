@@ -2,7 +2,7 @@
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](a)
 
-![image](https://github.com/archivecoderzero/liri-node-app/blob/master/public/images/placer.PNG) 
+![image](https://bcassetcdn.com/asset/logo/96ea3eac-d365-48a1-b0b0-652e92de6bb7/logo?v=4&text=Logo+Text+Here) 
 
 
 ### Chatmosphere enables a seamless communication using the latest web technology. It is a stand-alone web application that runs using the technology called Socket Io, themost cutting edge in peer to peer communication using NodeJs . Chatmosphere works like your regular chatapplication with one key twist! Your identities are not revealed in the first few messages , only whenyou chose to connect to the stranger and if its mutual is when your identities will be revealed 
