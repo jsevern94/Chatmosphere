@@ -1,23 +1,46 @@
-<div class="container">
-  <div class="row">
+{{!-- <div class="container"  >
+  <div class="row" id="profile">
     <div class="col-md">
       <h2>Congratulations!</h2>
-      <h5>Welcome {{{user}}}, You have logged in successfully.</h5>
-      <a class="btn btn-primary" href="/logout" role="button">Sign Out</a>
+      <h5>Welcome, You have logged in successfully.</h5>
       <br>
       <div class="card">
         <img class="user-img" src="..." alt="user img">
         <div class="card-body">
           <h5 class="card-title">Your Info</h5>
           <div class="card-text">
-            <ul id="userName"></ul>
-            <ul id="email"></ul>
-            <ul id="firstName"=></ul>
-            <ul id="lastName"=></ul>
-            <ul id="about"></ul>
+            <ul id="userName">User Name</ul>
+            <ul id="email">Email</ul>
+            <ul id="firstName"=>First Name</ul>
+            <ul id="lastName"=>Last Name</ul>
+            <ul id="about">About you</ul>
           </div>
           <a href="#" class="btn btn-primary">Edit Profile</a>
         </div>
       </div>
     </div>
   </div>
+  <button><a class="btn btn-primary" href="/logout" role="button">Sign Out</a></button>
+  </div>
+<br> --}}
+
+<div class="home-page">
+    <div class="profile-container">
+    <div class="top-bg">
+      <div class="profile-img-circle">
+        <img src="/public/images/male-avatar-profile-picture-vector-260nw-221431012.webp" alt="avatar">
+      </div>
+    </div>
+    <div class="profile-content">
+      <h2 class="user">Welcome {{{user}}}</h2>
+      <h5 class="display">You have logged in successfully.</h5>
+      <h5 class="display">User Name: {{{user}}}</h5>
+      <h5 class="display">Email: {{{email}}}</h5>
+      <h5 class="display">First Name:{{{FirstName}}}</h5>
+      <h5 class="display">Last Name:{{{LastName}}}</h5>
+      <h5 class="about">About: {{{tellUsMore}}}</h5>
+      <button class="chat-button"> <a href="/views/chat.hbs"></a> Chat</button>
+      <button class="signOut-button"><a href="/logout" role="button">Sign Out</a></button>
+    </div> 
+  </div>
+</div>

@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha || true",
     "start": "node server.js",
     "build:css": "postcss public/assets/css/style.css -o public/assets/css/tailwind.css",
     "watch": "watch \"npm run build:css\" ./views"
@@ -32,5 +32,9 @@
     "socket.io": "*",
     "tailwindcss": "^1.0.5",
     "watch": "^1.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
   }
 }

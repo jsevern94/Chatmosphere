@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+$bs: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+.home {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-container {
+    width: 300px;
+    height: 500px;
+    background: #fff;
+    box-shadow: $bs;
+    display: flex;
+    flex-direction: column;
+    .top-big{
+        flex: 1;
+        background: #2196F3;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        .profile-img-circle {
+            padding: 3px;
+            background: white;
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            box-shadow: $bs;
+            transform: translateY(48px);
+            img {
+                border-radius: 100%
+            }
+        }
+    }
+    .profile-content {
+        padding-top: 48px;
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .user {
+            margin: 0;
+            color: #616161;
+        }
+        .display {
+            margin: 0;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: rgba(0,0,0, .50);
+        }
+        .about {
+            margin-top: 16px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            padding-left: 10%;
+            padding-right: 10%;
+            color: rgba(0,0,0, .60);
+
+        }
+        .chat-button {
+            width: 50%;
+            display: flex;
+            font-size: 24px;
+            color: #252424;
+        }
+        .signOut-button {
+            position: absolute;
+            bottom: 28px;
+            border: 0;
+            background: #2196F3;
+            color: whitee;
+            padding: 6px 12px;
+            font-weight: 300;
+            transition: .10s all ease-inout;
+            &:hover {
+                transform: scale(1.05);
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
