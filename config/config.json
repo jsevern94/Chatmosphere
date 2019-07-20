@@ -1,9 +1,6 @@
 {
   "development": {
-    "username": "root",
-    "password": "yourRootPassword",
-    "database": "Auth_db",
-    "host": "localhost",
+    "use_env_variable": "DB_DEV",
     "dialect": "mysql",
     "operatorsAliases": false
   },
@@ -16,11 +13,8 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "secret": "SESSION_SECRET"
   }
 }

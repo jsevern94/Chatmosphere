@@ -44,13 +44,13 @@ module.exports = (app, passport) => {
   app.put("/api/tellusmore", function (req, res, next) {
 
     db.user.update({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       about: req.body.bio,
       email: req.body.email
     }, {
         where: {
-          username: req.user.username
+          userName: req.user.userName
         }
       }).then(function (dbUser) {
         res.json(dbUser);
@@ -62,21 +62,25 @@ module.exports = (app, passport) => {
 
   app.get('/home', isLoggedIn, (req, res) => {
     res.render('home', {
-      user: req.user.username
+      userName: req.user.userName,
+      email: req.user.email,
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+      about: req.user.about
     });
-    console.log(req.user);
   });
 
-  app.get('/chat/:username', isLoggedIn, (req, res) => {
-    if (req.params.username == req.user.username) {
+
+  app.get('/chat/:userid', (req, res) => {
+     if (req.params.username == req.user.username) {
       res.render('home', {
         user: req.user.username
       });
     }
     else {
       res.render('chat', {
-        partner: req.params.username,
-        user: req.user.username
+        partner: req.params.userid,
+        user: req.user.userName
       });
     }
   })
@@ -84,7 +88,7 @@ module.exports = (app, passport) => {
   app.get('/api/chat/:userid', (req, res) => {
     db.message.findAll({
       where: {
-        [Op.or]: [{ sender: req.user.username, receiver: req.params.userid }, { sender: req.params.userid, receiver: req.user.username }]
+        [Op.or]: [{ sender: req.user.userName, receiver: req.params.userid }, { sender: req.params.userid, receiver: req.user.userName }]
       },
       order: [['createdAt', 'ASC']]
     }).then(function (result) {
@@ -97,9 +101,8 @@ module.exports = (app, passport) => {
       sender: req.body.sender,
       receiver: req.body.receiver,
       content: req.body.content
-    }).then(function (dbTodo) {
-      // We have access to the new todo as an argument inside of the callback function
-      res.json(dbTodo);
+    }).then(function (dbMessage) {
+      res.json(dbMessage);
     });
 
   });
