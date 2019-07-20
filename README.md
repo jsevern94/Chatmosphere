@@ -5,36 +5,79 @@
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](a)
 
 <p align="center">
-  <img src="https://www.pngkey.com/png/detail/82-824287_live-chat-live-chat-logo-png.png">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/logo.png?raw=true">
 </p>
 
-## 📝 Description 
-### Chatmosphere enables a seamless communication using the latest web technology. It is a stand-alone web application that runs using the technology called Socket Io, themost cutting edge in peer to peer communication using NodeJs . Chatmosphere works like your regular chatapplication with one key twist! Your identities are not revealed in the first few messages , only whenyou chose to connect to the stranger and if its mutual is when your identities will be revealed 
+## 📝 Description :
+### Chatmosphere enables a seamless communication using the latest web technology. It is a stand-alone web application that runs using the package called Socket IO, the most cutting edge in peer to peer communication using NodeJs . Chatmosphere works like your regular chat application with one key twist! (available in future release) Your identities are not revealed in the first few messages , only when you chose to connect to the stranger and if its mutual is when your identities will be revealed .
 
-> We created a chat application (using web sockets) that allows users to send private messages to each other.
+> This chat application enables the users to communicate thru private messaging via a web socket technology .
 
 > You can share information about yourself, create a friends list, & chat strangers.
 
-## 📺 [Homepage](https://benefique-mandarine-57884.herokuapp.com/)
+
+
+## 📺 [Homepage](https://polar-spire-67758.herokuapp.com/)
+
+
 
 ## ✔️ Motivation  
+### As we all know , data is and will be the number one commodity in our age today , data is the currency of the web . We want to create a chat platform for people who dont want their share their identities and keep their messages secure . 
 
-> We wanted to create a chat platform for people who don’t want Mark Zuckerberg to read their private communication.
+> We also wanted to challenge ourselves by using new technologies. Using web sockets is conceptually different than client/server request/response networking. Tailwind CSS is a design framework that enables a seamless yet swift rendering of the web page design .
 
-> We won’t give your data to the NSA (on purpose).
 
-> We also wanted to challenge ourselves by using new technologies. Using web sockets is conceptually different than client/server request/response networking. Tailwind CSS is…..
+
+## 🔨Key-Technologies 
+
+> ⚡️ **Socket.Io** - Main technology that enables the use of web-sockets to communicate to another computer
+
+> 🍏 **Tailwind CSS** - CSS framework that focuses on utility for rapidly building custom designs.
+
+> 🍅 **PostCSS** - Software development tool that uses JavaScript-based plugins to automate routine CSS operations.
+
+> 📛 **Passport** - a package that enables authentication
+
+> 🎡 **Handlebars**(required) - Templating tool 
+
+> 💾 **MySQL / JawsDb**(required) -  Database
+
+
 
 ## ▶️ Preview 
 
-> Login Page : 
+### 🆚 Mobile : 
+
+> Mobile Responsive Design 
 <p align="center">
-  <img src="https://media0.giphy.com/media/3o6fJ66RKYXJbkQ1RC/giphy.gif">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS.png?raw=true" width="400" height="600">
 </p>
 
-> Chat Page  : 
+> Mobile Responsive Design 
 <p align="center">
-  <img src="https://media0.giphy.com/media/3o6fJ66RKYXJbkQ1RC/giphy.gif">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS%20(1).png?raw=true" width="400" height="600">
+</p>
+
+
+### 🍉Demo 
+
+> Included on this preview is the login page complete with authentication and a session secret .
+
+> A hashed password that is stored inside the server database . 
+
+> Dynamic checking if a user already exist or the password does not match .
+
+<p align="center">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Jul%2019%202019%2011_58%20PM.gif?raw=true">
+</p>
+
+
+> Aethetically pleasing animation 
+
+> Saved chat log , chat logs can be revisited even if you log out 
+
+<p align="center">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Jul%2019%202019%2011_40%20PM.gif?raw=true">
 </p>
 
 
@@ -44,6 +87,9 @@
 
 - [x] Created an authentication for users to sign-up
 - [x] Create a chat application that enables communication between two users
+- [x] Deployed a working application thru Heroku
+
+> with the outstanding effort of the team , we are able to achieve the MVP of the project . 
 
 ## 🚀 Roadmap :
 
@@ -54,11 +100,11 @@
 
 - [ ] Ability to add to friendslist
 - [ ] Ability to upload and edit profile pictures
+- [ ] Enable a "chat with random" within the application 
 
 ### 🚀 Release 3
 > This release would would be the main platform that sets the chat application apart. 
 
-- [ ] Enable a "chat with random" within the application 
 - [ ] Enable masking of the identities on "get to know" phase .
 
 ### 🚀 Release 4
@@ -69,30 +115,31 @@
 
 ## 📺 [View Source Code Here](https://github.com/ziakeb/project_chatmosphere/)
 
-## Install
+## Install on local
 
 ```sh
 npm install
 ```
+
 ## Developers
 
-👤 **Jonah**
+😺 **Jonah**
 
 * Github: [@jsevern94](https://github.com/jsevern94)
 
 
-👤 **Katherine**
+😺 **Katherine**
 
 * Github: [@karmitage](https://github.com/karmitage)
 
-
-👤 **Zia**
+😺 **Zia**
 
 * Github: [@ziakeb](https://github.com/ziakeb)
 
-👤 **Raphael**
+😺 **Raphael**
 
 * Github: [@archivecoderzero](https://github.com/archivecoderzero)
+
 
 
 ## 🤝 Contributing
