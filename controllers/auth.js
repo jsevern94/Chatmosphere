@@ -70,11 +70,19 @@ module.exports = (app, passport) => {
     });
   });
 
+
   app.get('/chat/:userid', (req, res) => {
-    res.render('chat', {
-      partner: req.params.userid,
-      user: req.user.userName
-    });
+     if (req.params.username == req.user.username) {
+      res.render('home', {
+        user: req.user.username
+      });
+    }
+    else {
+      res.render('chat', {
+        partner: req.params.userid,
+        user: req.user.userName
+      });
+    }
   })
 
   app.get('/api/chat/:userid', (req, res) => {
@@ -93,10 +101,8 @@ module.exports = (app, passport) => {
       sender: req.body.sender,
       receiver: req.body.receiver,
       content: req.body.content
-    }).then(function (dbTodo) {
-      // We have access to the new todo as an argument inside of 
-      // the callback function
-      res.json(dbTodo);
+    }).then(function (dbMessage) {
+      res.json(dbMessage);
     });
 
   });
