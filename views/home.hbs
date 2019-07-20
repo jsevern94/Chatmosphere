@@ -9,13 +9,13 @@
 
   <h2 class="text-center text-red-700 text-2xl mb-5">Congratulations!</h2>
 
-  <h5>Welcome {{{userName}}}, you've logged in successfully.</h5>
+  <h5>Welcome {{{username}}}, you've logged in successfully.</h5>
 
   <a class="btn btn-primary" href="/logout" role="button">Sign Out</a>
 
   <div class="w-screen flex justify-left">
 
-    <div id="homePage" class="rounded w-4/5 lg:w-1/5 shadow-lg">
+    <div id="homePage" class="rounded w-4/5 lg:w-1/5 shadow-lg text-center">
 
       <div id="homeContent">
         {{!-- user info --}}
@@ -23,7 +23,7 @@
           <div class="container">
             <h5 class="userDetails">Your Info</h5>
             <div class="userDetails">
-              <ul id="userName">User Name: {{{userName}}}</ul>
+              <ul id="username">User Name: {{{username}}}</ul>
               <ul id="email">Email: {{{email}}}</ul>
               <ul id="firstName"=>First Name: {{{firstName}}}</ul>
               <ul id="lastName"=>Last Name: {{{lastName}}}</ul>
@@ -39,7 +39,7 @@
             <h2>Chat Users</h2>
             {{#each User}}
             <ul>
-              {{{this.userName}}}
+              {{{this.username}}}
               <form action="/chat/{{{this.userid}}}">
                 <input type=" hidden" name="chat" id="chatting">
                 <a class="btn btn-primary" href="/chat{{{this.userid}}}" role="button">Chat!</a>
@@ -61,12 +61,14 @@
   <script>
     $(document).ready(function () {
 
-      var user = '{{{user}}}'
+      var user = '{{{username}}}'
 
       $(function () {
         var socket = io();
         socket.on('new message', function (msg) {
 
+          console.log(msg.receiver);
+          console.log(user);
           if (msg.receiver.toLowerCase() == user.toLowerCase()) {
             showtoast(`You have a new message from ${msg.sender}`, `/chat/${msg.sender}`);
           }

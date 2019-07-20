@@ -1,9 +1,9 @@
-<div class="text-2xl" id="messages" style="font-family: 'Spinnaker', sans-serif;"></div>
-<form action="" id="chat">
-    <input id="m" autocomplete="off" /><button>Send</button>
+<div class="text-2xl pb-12" id="messages" style="font-family: 'McLaren', cursive;"></div>
+<form action="" id="chat" class="fixed bottom-0">
+    <input id="m"  autocomplete="off" /><button>Send</button>
 </form>
 <p
-    class="bg-green-200 bg-blue-200 flex w-1/5 md:w-2/5 lg:w-3/5 border-black rounded-lg px-3 py-2 mr-10 ml-10 mt-4 flex-shrink-0 hidden">
+    class="bg-green-200 bg-blue-200 flex w-2/12 md:w-2/5 lg:w-3/5 border-black rounded-lg px-3 py-2 mr-10 ml-10 mt-4 flex-shrink-0 hidden z-10">
 </p>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
@@ -23,17 +23,18 @@
             for (var i = 0; i < arr.length; i++) {
                 if (arr[i].sender.toLowerCase() == user.toLowerCase()) {
                     var newMessage = $("<div>").addClass("flex flex-row-reverse");
-                    newMessage.append($("<div>").text(arr[i].content).addClass("bg-green-200 px-3 py-2 mr-10 mt-4 rounded-lg border-black shadow-lg"));
-                    newMessage.append($("<div>").addClass("w-1/5 md:w-2/5 lg:w-3/5 flex-shrink-0"));
+                    newMessage.append($("<div>").text(arr[i].content).addClass("bg-green-200 px-3 py-2 mr-10 mt-4 rounded-lg border-black shadow-lg z-10"));
+                    newMessage.append($("<div>").addClass("w-2/12 md:w-2/5 lg:w-3/5 flex-shrink-0"));
                     $("#messages").append(newMessage);
                 }
                 else if (arr[i].sender.toLowerCase() == partner.toLowerCase()) {
                     var newMessage = $("<div>").addClass("flex");
-                    newMessage.append($("<div>").text(arr[i].content).addClass("bg-blue-200 px-3 py-2 ml-10 mt-4 rounded-lg border-black shadow-lg"));
-                    newMessage.append($("<div>").addClass("w-1/5 md:w-2/5 lg:w-3/5 flex-shrink-0"));
+                    newMessage.append($("<div>").text(arr[i].content).addClass("bg-blue-200 px-3 py-2 ml-10 mt-4 rounded-lg border-black shadow-lg z-10"));
+                    newMessage.append($("<div>").addClass("w-2/12 md:w-2/5 lg:w-3/5 flex-shrink-0"));
                     $("#messages").append(newMessage);
                 }
             }
+            window.scrollTo(0, document.body.scrollHeight);
         }
 
         function getMessages() {
@@ -63,15 +64,15 @@
             socket.on('new message', function (msg) {
                 if ((msg.sender.toLowerCase() == user.toLowerCase() && msg.receiver.toLowerCase() == partner.toLowerCase())) {
                     var newMessage = $("<div>").addClass("flex flex-row-reverse");
-                    newMessage.append($("<div>").text(msg.content).addClass("bg-green-200 px-3 py-2 mr-10 mt-4 rounded-lg border-black shadow-lg slide-in-blurred-right"));
-                    newMessage.append($("<div>").addClass("w-1/5 md:w-2/5 lg:w-3/5 flex-shrink-0"));
+                    newMessage.append($("<div>").text(msg.content).addClass("bg-green-200 px-3 py-2 mr-10 mt-4 rounded-lg border-black shadow-lg z-10 slide-in-blurred-right"));
+                    newMessage.append($("<div>").addClass("w-2/12 md:w-2/5 lg:w-3/5 flex-shrink-0"));
                     $("#messages").append(newMessage);
                     window.scrollTo(0, document.body.scrollHeight);
                 }
                 else if ((msg.sender.toLowerCase() == partner.toLowerCase() && msg.receiver.toLowerCase() == user.toLowerCase())) {
                     var newMessage = $("<div>").addClass("flex");
-                    newMessage.append($("<div>").text(msg.content).addClass("bg-blue-200 px-3 py-2 ml-10 mt-4 rounded-lg border-black shadow-lg slide-in-blurred-left"));
-                    newMessage.append($("<div>").addClass("w-1/5 md:w-2/5 lg:w-3/5 flex-shrink-0"));
+                    newMessage.append($("<div>").text(msg.content).addClass("bg-blue-200 px-3 py-2 ml-10 mt-4 rounded-lg border-black shadow-lg z-10 slide-in-blurred-left"));
+                    newMessage.append($("<div>").addClass("w-2/12 md:w-2/5 lg:w-3/5 flex-shrink-0"));
                     $("#messages").append(newMessage);
                     window.scrollTo(0, document.body.scrollHeight);
                 }

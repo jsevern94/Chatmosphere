@@ -10,4 +10,9 @@ $(document).ready(function () {
 
         e.preventDefault();
     });
+
+    $("#scroll-button").click(function () {
+        console.log("click");
+        $(window).scrollTop($('#section2').offset().top)
+    });
 });

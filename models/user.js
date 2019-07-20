@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
   var User = sequelize.define("user", {
-    userName: { primaryKey: true, type: Sequelize.STRING, allowNull: false },
+    username: { primaryKey: true, type: Sequelize.STRING, allowNull: false },
     firstName: { type: Sequelize.STRING },
     lastName: { type: Sequelize.STRING },
     about: { type: Sequelize.TEXT },
