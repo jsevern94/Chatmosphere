@@ -60,15 +60,47 @@ module.exports = (app, passport) => {
       });
   });
 
-  app.get('/home', isLoggedIn, (req, res) => {
-    res.render('home', {
-      userName: req.user.userName,
-      email: req.user.email,
-      firstName: req.user.firstName,
-      lastName: req.user.lastName,
-      about: req.user.about
-    });
+  app.get('/home', isLoggedIn, function (req, res, next) {
+    // get user data from Sequelize
+    db.user.findAll({
+      order: [
+        ["userName", "ASC"]
+      ]
+    })
+      // use promise method to pass users
+      .then(function (dbuser) {
+        var hbsObject = {
+          user: dbuser
+        };
+
+        var cuObject = {
+          currentUserName: req.user.userName,
+          currentEmail: req.user.email,
+          currentFirstName: req.user.firstName,
+          currentLastName: req.user.lastName,
+          currentAbout: req.user.about
+        };
+        //pass users along with info about current user
+        return res.render("home", hbsObject, cuObject);
+      }).catch(function (err) {
+        res.json(err);
+        next();
+      });
+
   });
+
+
+  // app.get('/home', isLoggedIn, (req, res) => {
+
+  //   //get values for the *current* logged in user
+  //   res.render('home', {
+  //     currentUserName: req.user.userName,
+  //     currentEmail: req.user.email,
+  //     currentFirstName: req.user.firstName,
+  //     currentLastName: req.user.lastName,
+  //     currentAbout: req.user.about
+  //   });
+  // });
 
   app.get('/chat/:userid', (req, res) => {
     res.render('chat', {
