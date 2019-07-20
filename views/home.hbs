@@ -9,7 +9,11 @@
 
   <h2 class="text-center text-red-700 text-2xl mb-5">Congratulations!</h2>
 
+<<<<<<< HEAD
   <h5>Welcome {{{username}}}, you've logged in successfully.</h5>
+=======
+  <h5>Welcome {{{currentUserName}}}, you've logged in successfully.</h5>
+>>>>>>> d36015e04c6131d7f0e9360bfafef57e5c35cf6c
 
   <a class="btn btn-primary" href="/logout" role="button">Sign Out</a>
 
@@ -23,11 +27,19 @@
           <div class="container">
             <h5 class="userDetails">Your Info</h5>
             <div class="userDetails">
+<<<<<<< HEAD
               <ul id="username">User Name: {{{username}}}</ul>
               <ul id="email">Email: {{{email}}}</ul>
               <ul id="firstName"=>First Name: {{{firstName}}}</ul>
               <ul id="lastName"=>Last Name: {{{lastName}}}</ul>
               <ul id="about">About: {{{about}}}</ul>
+=======
+              <ul id="userName">User Name: {{{currentUserName}}}</ul>
+              <ul id="email">Email: {{{currentEmail}}}</ul>
+              <ul id="firstName"=>First Name: {{{currentFirstName}}}</ul>
+              <ul id="lastName"=>Last Name: {{{currentLastName}}}</ul>
+              <ul id="about">About: {{{currentAbout}}}</ul>
+>>>>>>> d36015e04c6131d7f0e9360bfafef57e5c35cf6c
             </div>
             <a class="btn btn-primary" href="/tellusmore" role="button">Edit Your Info</a>
           </div>
@@ -37,12 +49,17 @@
         <div id="userList" class="text-left bg-white">
           <div class="container">
             <h2>Chat Users</h2>
-            {{#each User}}
+            {{#each user}}
             <ul>
+<<<<<<< HEAD
               {{{this.username}}}
               <form action="/chat/{{{this.userid}}}">
+=======
+              {{{this.userName}}}
+              <form action="/chat/{{{this.userName}}}">
+>>>>>>> d36015e04c6131d7f0e9360bfafef57e5c35cf6c
                 <input type=" hidden" name="chat" id="chatting">
-                <a class="btn btn-primary" href="/chat{{{this.userid}}}" role="button">Chat!</a>
+                <a class="btn btn-primary" href="/chat/{{{this.userName}}}" role="button">Chat!</a>
               </form>
             </ul>
             {{/each}}
