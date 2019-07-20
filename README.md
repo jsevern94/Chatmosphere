@@ -25,36 +25,42 @@
 ## 🔨Key-Technologies 
 
 > ⚡️ Socket.Io - Main technology that enables the use of web-sockets to communicate to another computer
+
 > 🍏 Tailwind CSS - CSS framework that focuses on utility for rapidly building custom designs.
+
 > 🎡 Handlebars - Templating tool 
+
 > 💾 MySQL / JawsDb -  Database
 
 ## ▶️ Preview 
 
 ### 🆚Sign-In : 
 
+> Mobile Responsive Design 
 <p align="center">
-  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS.png?raw=true">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS.png?raw=true" width="200" height="450">
 </p>
 
-> Mobile Responsive Design 
+
 
 <p align="center">
   <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Jul%2019%202019%2011_58%20PM.gif?raw=true">
 </p>
 
 > Included on this preview is the login page complete with authentication and a session secret .
+
 > A hashed password that is stored inside the server database . 
+
 > Dynamic checking if a user already exist or the password does not match .
 
 
 ### 🍉Chat Page  : 
 
+> Mobile Responsive Design 
 <p align="center">
-  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS%20(1).png?raw=true">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS%20(1).png?raw=true" width="200" height="450">
 </p>
 
-> Mobile Responsive Design 
 
 
 <p align="center">
