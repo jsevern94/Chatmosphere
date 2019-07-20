@@ -3,7 +3,7 @@
     <input id="m"  autocomplete="off" /><button>Send</button>
 </form>
 <p
-    class="bg-green-200 bg-blue-200 flex w-2/12 md:w-2/5 lg:w-3/5 border-black rounded-lg px-3 py-2 mr-10 ml-10 mt-4 flex-shrink-0 hidden z-10">
+    class="bg-green-200 bg-blue-200 flex w-2/12 md:w-2/5 lg:w-3/5 border-black rounded-lg px-3 py-2 mr-10 ml-10 mt-4 flex-shrink-0 hidden bg-fixed z-10">
 </p>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
@@ -139,9 +139,6 @@
 
 <style>
     body {
-        background-color: #3B2F63;
-        background-image: -webkit-radial-gradient(50% top, rgba(84, 90, 182, 0.6) 0%, rgba(84, 90, 182, 0) 75%), -webkit-radial-gradient(right top, #794aa2 0%, rgba(121, 74, 162, 0) 57%);
-        background-image: radial-gradient(at 50% top, rgba(84, 90, 182, 0.6) 0%, rgba(84, 90, 182, 0) 75%), radial-gradient(at right top, #794aa2 0%, rgba(121, 74, 162, 0) 57%);
-        background-repeat: no-repeat;
+        background-image: url("../images/background3.jpg") !important;
     }
 </style>

@@ -1,15 +1,32 @@
-<div class="h-screen w-screen bg-cover bg-center m-0 overflow-x-hidden"
-  style="background-image: url(/images/background3.jpg)">
+<div class="h-screen w-screen bg-cover bg-center overflow-x-hidden">
 
-  <h2 class="text-center text-3xl lg:text-6xl mt-20" style="font-family: 'McLaren', cursive;">
-    Welcome to</h2>
+  <div class="invisible md:visible flex absolute top-0 right-0">
+    <button
+      class="text-2xl tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-4 mt-4 mb-10 ml-4 rounded-full"><a
+        href="/login">Log In</a></button>
+    <button
+      class="text-2xl tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-4 mt-4 mb-10 ml-4 rounded-full"><a
+        href="/signup">Sign Up</a></button>
+  </div>
 
-  <div class="w-screen flex justify-center mt-6">
+  <div class="w-screen flex justify-center mt-32">
     <img class="w-11/12 md:w-2/3 lg:w-1/2" src="/images/logo.png" alt="chatmosphere logo">
   </div>
 
+  <h2 class="text-center text-3xl lg:text-4xl text-indigo-800 mt-24" style="font-family: 'McLaren', cursive;">
+    We won't share your messages with Zuckerberg... Even if he bribes us.</h2>
+
+  <div class="md:invisible flex justify-center mt-20">
+    <button
+      class="text-2xl tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-4 mt-4 mb-10 ml-4 rounded-full"><a
+        href="/login">Log In</a></button>
+    <button
+      class="text-2xl tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-4 mt-4 mb-10 ml-4 rounded-full"><a
+        href="/signup">Sign Up</a></button>
+  </div>
+
   <div id="scroll-button" class="cursor-pointer bob absolute inset-x-0 bottom-0 w-full text-center text-6xl">
-    <svg class="fill-current text-indigo-600 inline-block h-32 w-32" xmlns="http://www.w3.org/2000/svg"
+    <svg class="fill-current text-indigo-200 inline-block h-32 w-32" xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20">
       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
     </svg>
@@ -17,7 +34,7 @@
 
 </div>
 
-<div id="section2" class="h-screen w-screen" style="font-family: 'Patrick Hand SC', cursive;">
+<div id="section2" class="h-screen w-screen" style="font-family: 'McLaren', cursive;">
   <div class="w-screen flex justify-center">
 
     <div id="login-signup" class="rounded-lg overflow-hidden w-4/5 md:w-2/5 lg:w-1/5 shadow-lg">
@@ -89,7 +106,7 @@
                   type="password" name="password2" placeholder="qwerty123... again" required>
               </div>
 
-              <p class="pb-4">By creating an account you agree to our <a href="#">Terms of Service</a>.</p>
+              <p class="pb-4"><a href="#">Terms and Conditions</a>.</p>
 
               <button type="submit"
                 class="text-xl tracking-wider bg-blue-300 hover:bg-blue-500 text-white py-2 px-4 mb-10 border border-white hover:border-transparent rounded-full">Let's
