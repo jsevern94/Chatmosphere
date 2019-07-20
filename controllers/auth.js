@@ -79,7 +79,7 @@ module.exports = (app, passport) => {
   //       };
 
   //       var cuObject = {
-  //         currentUserName: req.user.userName,
+  //         currentusername: req.user.username,
   //         currentEmail: req.user.email,
   //         currentFirstName: req.user.firstName,
   //         currentLastName: req.user.lastName,
@@ -96,21 +96,22 @@ module.exports = (app, passport) => {
 
 
   app.get('/home', isLoggedIn, (req, res) => {
-<<<<<<< HEAD
-    res.render('home', {
-      username: req.user.username,
-      email: req.user.email,
-      firstName: req.user.firstName,
-      lastName: req.user.lastName,
-      about: req.user.about
-=======
     db.user.findAll({
+      where: {
+        username: {
+          [Op.ne]: req.user.username
+        }
+      }
     }).then(function (dbUser) {
       var hbsObject = {
-        user: dbUser
+        user: dbUser,
+        username: req.user.username,
+        email: req.user.email,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        about: req.user.about
       };
       return res.render("home", hbsObject);
->>>>>>> d36015e04c6131d7f0e9360bfafef57e5c35cf6c
     });
   });
 
