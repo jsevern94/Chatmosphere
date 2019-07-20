@@ -22,17 +22,47 @@
 
 > We also wanted to challenge ourselves by using new technologies. Using web sockets is conceptually different than client/server request/response networking. Tailwind CSS is a design framework that enables a seamless yet swift rendering of the web page design .
 
+## 🔨Key-Technologies 
+
+> ⚡️ Socket.Io - Main technology that enables the use of web-sockets to communicate to another computer
+> 🍏 Tailwind CSS - CSS framework that focuses on utility for rapidly building custom designs.
+> 🎡 Handlebars - Templating tool 
+> 💾 MySQL / JawsDb -  Database
+
 ## ▶️ Preview 
 
-> Sign-In : 
+### 🆚Sign-In : 
+
+<p align="center">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS.png?raw=true">
+</p>
+
+> Mobile Responsive Design 
+
 <p align="center">
   <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Jul%2019%202019%2011_58%20PM.gif?raw=true">
 </p>
 
-> Chat Page  : 
+> Included on this preview is the login page complete with authentication and a session secret .
+> A hashed password that is stored inside the server database . 
+> Dynamic checking if a user already exist or the password does not match .
+
+
+### 🍉Chat Page  : 
+
 <p align="center">
-  <img src="https://media0.giphy.com/media/3o6fJ66RKYXJbkQ1RC/giphy.gif">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS%20(1).png?raw=true">
 </p>
+
+> Mobile Responsive Design 
+
+
+<p align="center">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Jul%2019%202019%2011_40%20PM.gif?raw=true">
+</p>
+
+> Aethetically pleasing animation 
+> Saved chat log , chat logs can be revisited even if you log out 
 
 
 ## 🌱 Version 1.0 Release Notes :
@@ -51,11 +81,12 @@
 
 - [ ] Ability to add to friendslist
 - [ ] Ability to upload and edit profile pictures
+- [ ] Enable a "chat with random" within the application 
+
 
 ### 🚀 Release 3
 > This release would would be the main platform that sets the chat application apart. 
 
-- [ ] Enable a "chat with random" within the application 
 - [ ] Enable masking of the identities on "get to know" phase .
 
 ### 🚀 Release 4
