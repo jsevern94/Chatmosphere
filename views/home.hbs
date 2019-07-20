@@ -1,39 +1,61 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md">
-      <h2>Congratulations!</h2>
-      <h5>Welcome {{{user}}}, You have logged in successfully.</h5>
-      <a class="btn btn-primary" href="/logout" role="button">Sign Out</a>
-      <br>
-      <div class="card">
-        <img class="user-img" src="..." alt="user img">
-        <div class="card-body">
-          <h5 class="card-title">Your Info</h5>
-          <div class="card-text">
-            <ul id="userName">{{{userName}}}</ul>
-            <ul id="email">{{{email}}}</ul>
-            <ul id="firstName"=>{{{firstName}}}</ul>
-            <ul id="lastName"=>{{{lastName}}}</ul>
-            <ul id="about">{{{about}}}</ul>
-          </div>
-          <a href="#" class="btn btn-primary">Edit Profile</a>
+<div class="h-screen w-screen bg-cover bg-center bg-fixed m-0"
+  style="font-family: 'Cabin Sketch', cursive;background-image: url(/images/background.jpg)">
 
-          <div class="row">
-            <div class="col-sm-6">
-              <h2>Chat Users</h2>
-              {{#each users}}
-              <ul>
-                {{this.user}}
-                <form action="/chat/{{this.user}}">
-                  <input type=" hidden" name="chat" id="chatting">
-                  <button class="btn-primary" type="submit" id="Chat">Chat!</button>
-                </form>
-              </ul>
-              {{/each}}
+  <p class="text-center text-5xl lg:text-6xl py-10" style="font-family: 'Fredericka the Great', cursive;">
+    Chatmosphere</p>
+
+  <p class="text-center text-3xl lg:text-5xl pb-10" style="font-family: 'Fredericka the Great', cursive;">
+    Trust us, it's better than Facebook</p>
+
+  <h2 class="text-center text-red-700 text-2xl mb-5">Congratulations!</h2>
+
+  <h5>Welcome {{{userName}}}, you've logged in successfully.</h5>
+
+  <a class="btn btn-primary" href="/logout" role="button">Sign Out</a>
+
+  <div class="w-screen flex justify-left">
+
+    <div id="homePage" class="rounded w-4/5 lg:w-1/5 shadow-lg">
+
+      <div id="homeContent">
+        {{!-- user info --}}
+        <div id="userInfo" class="text-left bg-white">
+          <div class="container">
+            <h5 class="userDetails">Your Info</h5>
+            <div class="userDetails">
+              <ul id="userName">User Name: {{{userName}}}</ul>
+              <ul id="email">Email: {{{email}}}</ul>
+              <ul id="firstName"=>First Name: {{{firstName}}}</ul>
+              <ul id="lastName"=>Last Name: {{{lastName}}}</ul>
+              <ul id="about">About: {{{about}}}</ul>
             </div>
+            <a class="btn btn-primary" href="/tellusmore" role="button">Edit Your Info</a>
           </div>
         </div>
+
+        {{!-- user list --}}
+        <div id="userList" class="text-left bg-white">
+          <div class="container">
+            <h2>Chat Users</h2>
+            {{#each User}}
+            <ul>
+              {{{this.userName}}}
+              <form action="/chat/{{{this.userid}}}">
+                <input type=" hidden" name="chat" id="chatting">
+                <a class="btn btn-primary" href="/chat{{{this.userid}}}" role="button">Chat!</a>
+              </form>
+            </ul>
+            {{/each}}
+          </div>
+
+        </div>
+
       </div>
+
     </div>
+
   </div>
-</div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/assets/js/home.js"></script>
