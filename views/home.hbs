@@ -9,7 +9,7 @@
 
   <h2 class="text-center text-red-700 text-2xl mb-5">Congratulations!</h2>
 
-  <h5>Welcome {{{username}}}, you've logged in successfully.</h5>
+  <h5>Welcome {{{currentUserName}}}, you've logged in successfully.</h5>
 
   <a class="btn btn-primary" href="/logout" role="button">Sign Out</a>
 
@@ -23,11 +23,13 @@
           <div class="container">
             <h5 class="userDetails">Your Info</h5>
             <div class="userDetails">
-              <ul id="username">User Name: {{{username}}}</ul>
-              <ul id="email">Email: {{{email}}}</ul>
-              <ul id="firstName"=>First Name: {{{firstName}}}</ul>
-              <ul id="lastName"=>Last Name: {{{lastName}}}</ul>
-              <ul id="about">About: {{{about}}}</ul>
+            
+              <ul id="userName">User Name: {{{currentUserName}}}</ul>
+              <ul id="email">Email: {{{currentEmail}}}</ul>
+              <ul id="firstName"=>First Name: {{{currentFirstName}}}</ul>
+              <ul id="lastName"=>Last Name: {{{currentLastName}}}</ul>
+              <ul id="about">About: {{{currentAbout}}}</ul>
+
             </div>
             <a class="btn btn-primary" href="/tellusmore" role="button">Edit Your Info</a>
           </div>
@@ -37,12 +39,14 @@
         <div id="userList" class="text-left bg-white">
           <div class="container">
             <h2>Chat Users</h2>
-            {{#each User}}
+            {{#each user}}
             <ul>
-              {{{this.username}}}
-              <form action="/chat/{{{this.userid}}}">
+
+              {{{this.userName}}}
+              <form action="/chat/{{{this.userName}}}">
+
                 <input type=" hidden" name="chat" id="chatting">
-                <a class="btn btn-primary" href="/chat{{{this.userid}}}" role="button">Chat!</a>
+                <a class="btn btn-primary" href="/chat/{{{this.userName}}}" role="button">Chat!</a>
               </form>
             </ul>
             {{/each}}
