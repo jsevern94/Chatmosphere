@@ -1,24 +1,97 @@
-<div class="h-screen w-screen bg-cover bg-center bg-fixed m-0 overflow-x-hidden"
-  style="background-image: url(/images/background3.jpg)">
+<div class="h-screen w-screen bg-cover bg-center overflow-x-hidden" style="font-family: 'McLaren', cursive;">
 
-  <div class="w-screen flex justify-center py-10">
-    <img class="w-11/12 md:w-2/3 lg:w-2/5 mt-20" src="/images/logo.png" alt="chatmosphere logo">
+  <div class="invisible md:visible flex absolute top-0 right-0">
+    <button
+      class="text-2xl tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-4 mt-4 mb-10 ml-4 rounded-full"><a
+        href="/login">Log In</a></button>
+    <button
+      class="text-2xl tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-4 mt-4 mb-10 ml-4 rounded-full"><a
+        href="/signup">Sign Up</a></button>
   </div>
 
-  <h2 class="text-center text-3xl lg:text-5xl pb-10" style="font-family: 'McLaren', cursive;">
-    Trust us,
-    it's better than Facebook</h2>
+  <div class="w-screen flex justify-center mt-32">
+    <img class="w-11/12 md:w-2/3 lg:w-1/2" src="/images/logo.png" alt="chatmosphere logo">
+  </div>
+
+  <h2 class="text-center text-2xl md:text-4xl text-indigo-800 mt-20 md:mt-24">
+    We won't share your messages with Zuckerberg...</h2>
+
+  <h2 class="text-center text-xl md:text-3xl text-indigo-800 mt-10 md:mt-16">
+    Even if he bribes us.</h2>
+
+  <div class="md:invisible flex justify-center mt-20">
+    <button
+      class="text-2xl tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-4 mt-4 mb-10 ml-4 rounded-full"><a
+        href="/login">Log In</a></button>
+    <button
+      class="text-2xl tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-4 mt-4 mb-10 ml-4 rounded-full"><a
+        href="/signup">Sign Up</a></button>
+  </div>
+
+  <div id="scroll-button" class="cursor-pointer bob absolute inset-x-0 bottom-0 w-full text-center text-6xl">
+    <svg class="fill-current text-indigo-200 inline-block h-32 w-32" xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20">
+      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+    </svg>
+  </div>
 
 </div>
 
-<div class="h-screen w-screen" style="font-family: 'Patrick Hand SC', cursive;">
-  <div class="w-screen flex justify-center">
+<div id="section2" class="h-screen w-screen" style="font-family: 'McLaren', cursive;">
+  <div class="w-screen text-center pt-20 text-5xl">Meet the Team</div>
+  <div class="flex justify-center pt-10">
+    <div class="w-screen flex-1 container">
 
-    <div id="login-signup" class="rounded w-4/5 lg:w-1/5 shadow-lg">
+      <div class="my-3 md:flex md:items-center invisible lefty">
+        <img class="h-20 w-20 md:h-40 md:w-40 rounded-full mx-auto md:mx-0 md:mr-6" src="images/female.png">
+        <div class="text-center md:text-left">
+          <h2 class="md:text-2xl">Katherine Armitage</h2>
+          <div class="md:text-2xl text-purple-500">Customer Support</div>
+          <div class="md:text-2xl text-gray-600">Short about me...</div>
+        </div>
+      </div>
+
+      <div class="my-3 md:flex md:flex-row-reverse md:items-center invisible righty">
+        <img class="h-20 w-20 md:h-40 md:w-40 rounded-full mx-auto md:mx-0 md:ml-6"
+          src="images/image-placeholder-male.jpg">
+        <div class="text-center md:text-right">
+          <h2 class="md:text-2xl">Jonah Severn</h2>
+          <div class="md:text-2xl text-purple-500">Customer Support</div>
+          <div class="md:text-2xl text-gray-600">Short about me...</div>
+        </div>
+      </div>
+
+      <div class="my-3 md:flex md:items-center invisible lefty">
+        <img class="h-20 w-20 md:h-40 md:w-40 rounded-full mx-auto md:mx-0 md:mr-6" src="images/female.png">
+        <div class="text-center md:text-left">
+          <h2 class="md:text-2xl">Zia Kebede</h2>
+          <div class="md:text-2xl text-purple-500">Customer Support</div>
+          <div class="md:text-2xl text-gray-600">Short about me...</div>
+        </div>
+      </div>
+
+      <div class="my-3 md:flex md:flex-row-reverse md:items-center invisible righty">
+        <img class="h-20 w-20 md:h-40 md:w-40 rounded-full mx-auto md:mx-0 md:ml-6"
+          src="images/image-placeholder-male.jpg">
+        <div class="text-center md:text-right">
+          <h2 class="md:text-2xl">Raphael</h2>
+          <div class="md:text-2xl text-purple-500">Customer Support</div>
+          <div class="md:text-2xl text-gray-600">Short about me...</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="section3" class="h-screen w-screen" style="font-family: 'McLaren', cursive;">
+  <div class="w-screen flex justify-center mt-20">
+
+    <div id="login-signup" class="rounded-lg overflow-hidden w-4/5 md:w-2/5 lg:w-1/5 shadow-lg mt-40">
 
       <ul id="links" class="flex text-xl">
-        <li class="flex-1 text-center rounded-t active bg-white -mb-2"><a href="#log-in-form">Log In</a></li>
-        <li class="flex-1 text-center rounded-t"><a href="#sign-up-form">Sign Up</a></li>
+        <li class="flex-1 text-center rounded-t-lg active bg-white -mb-2"><a href="#log-in-form">Log In</a></li>
+        <li class="flex-1 text-center rounded-t-lg"><a href="#sign-up-form">Sign Up</a></li>
       </ul>
 
       <div id="content" class="text-center bg-white">
@@ -26,27 +99,32 @@
         <div id="log-in-form" class="tab active">
           <form id="login" name="login" method="post" action="login">
             <div class="container">
-              <div id="login-section1" class="h-64">
-                <div class="flex py-12">
-                  <p class="text-xl text-blue-500 w-1/2">
-                    Username: </p>
-                  <input
-                    class="text-l appearance-none bg-transparent border-b-2 w-full text-gray-900 py-1 mx-4 leading-tight focus:outline-none focus:border-orange-300"
-                    type="text" name="userName" placeholder="user123" id="exampleInputUserID1" required>
-                </div>
-                <div class="flex py-12">
-                  <p class="text-xl text-blue-500 w-1/2">
-                    Password: </p>
-                  <input
-                    class="text-l appearance-none bg-transparent border-b-2 w-full text-gray-900 py-1 mx-4 leading-tight focus:outline-none focus:border-orange-300"
-                    type="password" name="password" placeholder="qwerty123" id="exampleInputPassword1" required>
-                </div>
+              <div class="flex py-12">
+                <p class="text-xl text-blue-500 w-1/2">
+                  Username: </p>
+                <input
+                  class="text-l appearance-none bg-transparent border-b-2 w-full text-gray-900 py-1 mx-4 leading-tight focus:outline-none focus:border-orange-300"
+                  type="text" name="username" placeholder="user123" required>
               </div>
-              <div id="login-section2" class="h-64">
-                <button type="submit"
-                  class="text-xl tracking-wider bg-black hover:bg-blue-300 text-white py-2 px-4 mb-10 border border-white hover:border-transparent rounded">Let's
-                  Chat!</button>
+              <div class="flex pb-12">
+                <p class="text-xl text-blue-500 w-1/2">
+                  Password: </p>
+                <input
+                  class="text-l appearance-none bg-transparent border-b-2 w-full text-gray-900 py-1 mx-4 leading-tight focus:outline-none focus:border-orange-300"
+                  type="password" name="password" placeholder="qwerty123" required>
               </div>
+              <div class="flex pb-8 invisible">
+                <p class="text-xl text-blue-500 w-1/2">
+                  Confirm: </p>
+                <input
+                  class="text-l appearance-none bg-transparent border-b-2 w-full text-gray-900 py-1 mx-4 leading-tight focus:outline-none focus:border-orange-300"
+                  type="password" name="password2" placeholder="qwerty123... again">
+              </div>
+
+              <p class="pb-4">Forgot your <a href="#">password</a>?</p>
+              <button type="submit"
+                class="text-xl tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-4 mb-10 rounded-full">Let's
+                Chat!</button>
             </div>
           </form>
         </div>
@@ -55,38 +133,34 @@
         <div id="sign-up-form" class="tab">
           <form id="signup" name="signup" method="post" action="signup">
             <div class="container">
-              <div id="signup-section1" class="h-64">
-                <div class="flex py-12">
-                  <p class="text-xl text-blue-500 w-1/2">
-                    Username: </p>
-                  <input
-                    class="text-l appearance-none bg-transparent border-b-2 w-full text-gray-900 py-1 mx-4 leading-tight focus:outline-none focus:border-orange-300"
-                    type="text" name="userName" placeholder="user123" id="exampleInputUserID2" required>
-                </div>
-                <div class="flex py-12">
-                  <p class="text-xl text-blue-500 w-1/2">
-                    Password: </p>
-                  <input
-                    class="text-l appearance-none bg-transparent border-b-2 w-full text-gray-900 py-1 mx-4 leading-tight focus:outline-none focus:border-orange-300"
-                    type="password" name="password" placeholder="qwerty123" id="exampleInputPassword2" required>
-                </div>
-              </div>
-              <div id="signup-section2" class="h-64">
-                <div class="flex py-12">
-                  <p class="text-xl text-blue-500 w-1/2">
-                    Confirm Password: </p>
-                  <input
-                    class="text-l appearance-none bg-transparent border-b-2 w-full text-gray-900 py-1 mx-4 leading-tight focus:outline-none focus:border-orange-300"
-                    type="password" name="password2" placeholder="qwerty123... again" id="exampleInputPassword2.5"
-                    required>
-                </div>
 
-                <p>By creating an account you agree to our <a href="#">Terms of Service</a>.</p>
-
-                <button type="submit"
-                  class="text-xl tracking-wider bg-black hover:bg-blue-300 text-white py-2 px-4 mb-10 border border-white hover:border-transparent rounded">Let's
-                  Go!</button>
+              <div class="flex py-12">
+                <p class="text-xl text-blue-500 w-1/2">
+                  Username: </p>
+                <input
+                  class="text-l appearance-none bg-transparent border-b-2 w-full text-gray-900 py-1 mx-4 leading-tight focus:outline-none focus:border-orange-300"
+                  type="text" name="username" placeholder="user123" required>
               </div>
+              <div class="flex pb-12">
+                <p class="text-xl text-blue-500 w-1/2">
+                  Password: </p>
+                <input
+                  class="text-l appearance-none bg-transparent border-b-2 w-full text-gray-900 py-1 mx-4 leading-tight focus:outline-none focus:border-orange-300"
+                  type="password" name="password" placeholder="qwerty123" required>
+              </div>
+              <div class="flex pb-8">
+                <p class="text-xl text-blue-500 w-1/2">
+                  Confirm: </p>
+                <input
+                  class="text-l appearance-none bg-transparent border-b-2 w-full text-gray-900 py-1 mx-4 leading-tight focus:outline-none focus:border-orange-300"
+                  type="password" name="password2" placeholder="qwerty123... again" required>
+              </div>
+
+              <p class="pb-4"><a href="#">Terms and Conditions</a>.</p>
+
+              <button type="submit"
+                class="text-xl tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-4 mb-10 rounded-full">Let's
+                Go!</button>
             </div>
           </form>
         </div>
@@ -101,3 +175,4 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/assets/js/index.js"></script>
+<script src="/assets/js/isInViewport.js"></script>

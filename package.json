@@ -22,6 +22,7 @@
     "express": "*",
     "express-handlebars": "*",
     "express-session": "*",
+    "is-in-viewport": "^3.0.4",
     "mysql2": "*",
     "passport": "*",
     "passport-local": "*",

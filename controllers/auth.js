@@ -25,6 +25,14 @@ module.exports = (app, passport) => {
     })
   );
 
+  app.get('/signup', (req, res) => {
+    res.render('signup');
+  });
+
+  app.get('/login', (req, res) => {
+    res.render('login');
+  });
+
   app.get('/signup-fail', (req, res) => {
     res.render('signup', {
       message: req.flash('error')
@@ -50,7 +58,7 @@ module.exports = (app, passport) => {
       email: req.body.email
     }, {
         where: {
-          userName: req.user.userName
+          username: req.user.username
         }
       }).then(function (dbUser) {
         res.json(dbUser);
@@ -71,7 +79,7 @@ module.exports = (app, passport) => {
   //       };
 
   //       var cuObject = {
-  //         currentUserName: req.user.userName,
+  //         currentusername: req.user.username,
   //         currentEmail: req.user.email,
   //         currentFirstName: req.user.firstName,
   //         currentLastName: req.user.lastName,
@@ -89,9 +97,19 @@ module.exports = (app, passport) => {
 
   app.get('/home', isLoggedIn, (req, res) => {
     db.user.findAll({
+      where: {
+        username: {
+          [Op.ne]: req.user.username
+        }
+      }
     }).then(function (dbUser) {
       var hbsObject = {
-        user: dbUser
+        user: dbUser,
+        username: req.user.username,
+        email: req.user.email,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        about: req.user.about
       };
       return res.render("home", hbsObject);
     });
@@ -99,15 +117,15 @@ module.exports = (app, passport) => {
 
 
   app.get('/chat/:userid', (req, res) => {
-     if (req.params.userid == req.user.userName) {
+     if (req.params.userid == req.user.username) {
       res.render('home', {
-        user: req.user.userName
+        user: req.user.username
       });
     }
     else {
       res.render('chat', {
         partner: req.params.userid,
-        user: req.user.userName
+        user: req.user.username
       });
     }
   })
@@ -115,7 +133,7 @@ module.exports = (app, passport) => {
   app.get('/api/chat/:userid', (req, res) => {
     db.message.findAll({
       where: {
-        [Op.or]: [{ sender: req.user.userName, receiver: req.params.userid }, { sender: req.params.userid, receiver: req.user.userName }]
+        [Op.or]: [{ sender: req.user.username, receiver: req.params.userid }, { sender: req.params.userid, receiver: req.user.username }]
       },
       order: [['createdAt', 'ASC']]
     }).then(function (result) {
