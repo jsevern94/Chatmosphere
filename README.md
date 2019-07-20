@@ -15,7 +15,11 @@
 
 > You can share information about yourself, create a friends list, & chat strangers.
 
+
+
 ## 📺 [Homepage](https://polar-spire-67758.herokuapp.com/)
+
+
 
 ## ✔️ Motivation  
 ### As we all know , data is and will be the number one commodity in our age today , data is the currency of the web . We want to create a chat platform for people who dont want their share their identities and keep their messages secure . 
@@ -28,9 +32,13 @@
 
 > 🍏 Tailwind CSS - CSS framework that focuses on utility for rapidly building custom designs.
 
-> 🎡 Handlebars - Templating tool 
+> 🍅 PostCSS - Software development tool that uses JavaScript-based plugins to automate routine CSS operations.
 
-> 💾 MySQL / JawsDb -  Database
+> 📛 Passport - a package that enables authentication
+
+> 🎡 Handlebars(required) - Templating tool 
+
+> 💾 MySQL / JawsDb(required) -  Database
 
 ## ▶️ Preview 
 
@@ -38,12 +46,12 @@
 
 > Mobile Responsive Design 
 <p align="center">
-  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS.png?raw=true" width="450" height="750">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS.png?raw=true" width="450" height="600">
 </p>
 
 > Mobile Responsive Design 
 <p align="center">
-  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS%20(1).png?raw=true" width="450" height="750">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS%20(1).png?raw=true" width="450" height="600">
 </p>
 
 ### 🍉Demo 
