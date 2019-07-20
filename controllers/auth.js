@@ -73,14 +73,14 @@ module.exports = (app, passport) => {
   app.get('/chat/:userid', (req, res) => {
     res.render('chat', {
       partner: req.params.userid,
-      user: req.user.userid
+      user: req.user.userName
     });
   })
 
   app.get('/api/chat/:userid', (req, res) => {
     db.message.findAll({
       where: {
-        [Op.or]: [{ sender: req.user.userid, receiver: req.params.userid }, { sender: req.params.userid, receiver: req.user.userid }]
+        [Op.or]: [{ sender: req.user.userName, receiver: req.params.userid }, { sender: req.params.userid, receiver: req.user.userName }]
       },
       order: [['createdAt', 'ASC']]
     }).then(function (result) {
