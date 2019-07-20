@@ -9,7 +9,7 @@
 
   <h2 class="text-center text-red-700 text-2xl mb-5">Congratulations!</h2>
 
-  <h5>Welcome {{{userName}}}, you've logged in successfully.</h5>
+  <h5>Welcome {{{currentUserName}}}, you've logged in successfully.</h5>
 
   <a class="btn btn-primary" href="/logout" role="button">Sign Out</a>
 
@@ -42,7 +42,7 @@
               {{{this.userName}}}
               <form action="/chat/{{{this.userName}}}">
                 <input type=" hidden" name="chat" id="chatting">
-                <a class="btn btn-primary" href="/chat{{{this.userName}}}" role="button">Chat!</a>
+                <a class="btn btn-primary" href="/chat/{{{this.userName}}}" role="button">Chat!</a>
               </form>
             </ul>
             {{/each}}
