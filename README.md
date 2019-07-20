@@ -30,17 +30,17 @@
 
 ## 🔨Key-Technologies 
 
-> ⚡️ Socket.Io - Main technology that enables the use of web-sockets to communicate to another computer
+> ⚡️ **Socket.Io** - Main technology that enables the use of web-sockets to communicate to another computer
 
-> 🍏 Tailwind CSS - CSS framework that focuses on utility for rapidly building custom designs.
+> 🍏 **Tailwind CSS** - CSS framework that focuses on utility for rapidly building custom designs.
 
-> 🍅 PostCSS - Software development tool that uses JavaScript-based plugins to automate routine CSS operations.
+> 🍅 **PostCSS** - Software development tool that uses JavaScript-based plugins to automate routine CSS operations.
 
-> 📛 Passport - a package that enables authentication
+> 📛 **Passport** - a package that enables authentication
 
-> 🎡 Handlebars(required) - Templating tool 
+> 🎡 **Handlebars**(required) - Templating tool 
 
-> 💾 MySQL / JawsDb(required) -  Database
+> 💾 **MySQL / JawsDb**(required) -  Database
 
 
 
