@@ -34,18 +34,19 @@
 
 ## ▶️ Preview 
 
-### 🆚Sign-In : 
+### 🆚 Mobile : 
 
 > Mobile Responsive Design 
 <p align="center">
-  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS.png?raw=true" width="300" height="750">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS.png?raw=true" width="450" height="750">
 </p>
 
-
-
+> Mobile Responsive Design 
 <p align="center">
-  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Jul%2019%202019%2011_58%20PM.gif?raw=true">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS%20(1).png?raw=true" width="450" height="750">
 </p>
+
+### 🍉Demo 
 
 > Included on this preview is the login page complete with authentication and a session secret .
 
@@ -53,22 +54,18 @@
 
 > Dynamic checking if a user already exist or the password does not match .
 
-
-### 🍉Chat Page  : 
-
-> Mobile Responsive Design 
 <p align="center">
-  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS%20(1).png?raw=true" width="300" height="750">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Jul%2019%202019%2011_58%20PM.gif?raw=true">
 </p>
 
 
+> Aethetically pleasing animation 
+
+> Saved chat log , chat logs can be revisited even if you log out 
 
 <p align="center">
   <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Jul%2019%202019%2011_40%20PM.gif?raw=true">
 </p>
-
-> Aethetically pleasing animation 
-> Saved chat log , chat logs can be revisited even if you log out 
 
 
 ## 🌱 Version 1.0 Release Notes :
@@ -103,28 +100,29 @@
 
 ## 📺 [View Source Code Here](https://github.com/ziakeb/project_chatmosphere/)
 
-## Install
+## Install on local
 
 ```sh
 npm install
 ```
+
 ## Developers
 
-👤 **Jonah**
+😺 **Jonah**
 
 * Github: [@jsevern94](https://github.com/jsevern94)
 
 
-👤 **Katherine**
+😺 **Katherine**
 
 * Github: [@karmitage](https://github.com/karmitage)
 
 
-👤 **Zia**
+😺 **Zia**
 
 * Github: [@ziakeb](https://github.com/ziakeb)
 
-👤 **Raphael**
+😺 **Raphael**
 
 * Github: [@archivecoderzero](https://github.com/archivecoderzero)
 
