@@ -26,6 +26,8 @@
 
 > We also wanted to challenge ourselves by using new technologies. Using web sockets is conceptually different than client/server request/response networking. Tailwind CSS is a design framework that enables a seamless yet swift rendering of the web page design .
 
+
+
 ## 🔨Key-Technologies 
 
 > ⚡️ Socket.Io - Main technology that enables the use of web-sockets to communicate to another computer
@@ -40,6 +42,8 @@
 
 > 💾 MySQL / JawsDb(required) -  Database
 
+
+
 ## ▶️ Preview 
 
 ### 🆚 Mobile : 
@@ -53,6 +57,7 @@
 <p align="center">
   <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS%20(1).png?raw=true" width="450" height="600">
 </p>
+
 
 ### 🍉Demo 
 
@@ -82,6 +87,9 @@
 
 - [x] Created an authentication for users to sign-up
 - [x] Create a chat application that enables communication between two users
+- [x] Deployed a working application thru Heroku
+
+> with the outstanding effort of the team , we are able to achieve the MVP of the project . 
 
 ## 🚀 Roadmap :
 
@@ -93,7 +101,6 @@
 - [ ] Ability to add to friendslist
 - [ ] Ability to upload and edit profile pictures
 - [ ] Enable a "chat with random" within the application 
-
 
 ### 🚀 Release 3
 > This release would would be the main platform that sets the chat application apart. 
@@ -125,7 +132,6 @@ npm install
 
 * Github: [@karmitage](https://github.com/karmitage)
 
-
 😺 **Zia**
 
 * Github: [@ziakeb](https://github.com/ziakeb)
@@ -133,6 +139,7 @@ npm install
 😺 **Raphael**
 
 * Github: [@archivecoderzero](https://github.com/archivecoderzero)
+
 
 
 ## 🤝 Contributing
