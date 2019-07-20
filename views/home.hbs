@@ -21,3 +21,80 @@
       </div>
     </div>
   </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
+ 
+  <script>
+    $(document).ready(function () {
+
+      var user = '{{{user}}}'
+
+      $(function () {
+        var socket = io();
+        socket.on('new message', function (msg) {
+
+          if (msg.receiver.toLowerCase() == user.toLowerCase()) {
+            showtoast(`You have a new message from ${msg.sender}`, `/chat/${msg.sender}`);
+          }
+
+        });
+      });
+
+
+
+      function ToastBuilder(options) {
+        // options are optional
+        var opts = options || {};
+
+        // setup some defaults
+        opts.defaultText = opts.defaultText || 'default text';
+        opts.displayTime = opts.displayTime || 5000;
+        opts.target = opts.target || 'body';
+
+        return function (text, link) {
+          $('<a>')
+            .attr("href", link)
+            .addClass('toast rounded-full')
+            .prependTo($(opts.target))
+            .text(text || opts.defaultText)
+            .queue(function (next) {
+              $(this).css({
+                'opacity': 1
+              });
+              var topOffset = 15;
+              $('.toast').each(function () {
+                var $this = $(this);
+                var height = $this.outerHeight();
+                var offset = 15;
+                $this.css('top', topOffset + 'px');
+
+                topOffset += height + offset;
+              });
+              next();
+            })
+            .delay(opts.displayTime)
+            .queue(function (next) {
+              var $this = $(this);
+              var width = $this.outerWidth() + 20;
+              $this.css({
+                'right': '-' + width + 'px',
+                'opacity': 0
+              });
+              next();
+            })
+            .delay(600)
+            .queue(function (next) {
+              $(this).remove();
+              next();
+            });
+        };
+      }
+      var myOptions = {
+        defaultText: 'Toast, yo!',
+        displayTime: 5000,
+        target: 'body'
+      };
+      var showtoast = new ToastBuilder(myOptions)
+    })
+  </script>

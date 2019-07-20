@@ -1,8 +1,10 @@
-<div id="messages"></div>
+<div class="text-2xl" id="messages" style="font-family: 'Spinnaker', sans-serif;"></div>
 <form action="" id="chat">
     <input id="m" autocomplete="off" /><button>Send</button>
 </form>
-<p class="text-left text-right bg-green-200 bg-blue-200 border-b border-black"></p>
+<p
+    class="bg-green-200 bg-blue-200 flex w-1/5 md:w-2/5 lg:w-3/5 border-black rounded-lg px-3 py-2 mr-10 ml-10 mt-4 flex-shrink-0 hidden">
+</p>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
@@ -20,10 +22,16 @@
         function initializeMessages(arr) {
             for (var i = 0; i < arr.length; i++) {
                 if (arr[i].sender.toLowerCase() == user.toLowerCase()) {
-                    $('#messages').append($('<div>').text(arr[i].content).addClass('text-right bg-green-200 border-b border-black'));
+                    var newMessage = $("<div>").addClass("flex flex-row-reverse");
+                    newMessage.append($("<div>").text(arr[i].content).addClass("bg-green-200 px-3 py-2 mr-10 mt-4 rounded-lg border-black shadow-lg"));
+                    newMessage.append($("<div>").addClass("w-1/5 md:w-2/5 lg:w-3/5 flex-shrink-0"));
+                    $("#messages").append(newMessage);
                 }
                 else if (arr[i].sender.toLowerCase() == partner.toLowerCase()) {
-                    $('#messages').append($('<div>').text(arr[i].content).addClass('text-left bg-blue-200 border-b border-black'));
+                    var newMessage = $("<div>").addClass("flex");
+                    newMessage.append($("<div>").text(arr[i].content).addClass("bg-blue-200 px-3 py-2 ml-10 mt-4 rounded-lg border-black shadow-lg"));
+                    newMessage.append($("<div>").addClass("w-1/5 md:w-2/5 lg:w-3/5 flex-shrink-0"));
+                    $("#messages").append(newMessage);
                 }
             }
         }
@@ -54,11 +62,17 @@
             });
             socket.on('new message', function (msg) {
                 if ((msg.sender.toLowerCase() == user.toLowerCase() && msg.receiver.toLowerCase() == partner.toLowerCase())) {
-                    $('#messages').append($('<div>').text(msg.content).addClass('text-right bg-green-200 border-b border-black'));
+                    var newMessage = $("<div>").addClass("flex flex-row-reverse");
+                    newMessage.append($("<div>").text(msg.content).addClass("bg-green-200 px-3 py-2 mr-10 mt-4 rounded-lg border-black shadow-lg slide-in-blurred-right"));
+                    newMessage.append($("<div>").addClass("w-1/5 md:w-2/5 lg:w-3/5 flex-shrink-0"));
+                    $("#messages").append(newMessage);
                     window.scrollTo(0, document.body.scrollHeight);
                 }
                 else if ((msg.sender.toLowerCase() == partner.toLowerCase() && msg.receiver.toLowerCase() == user.toLowerCase())) {
-                    $('#messages').append($('<div>').text(msg.content).addClass('text-left bg-blue-200 border-b border-black'));
+                    var newMessage = $("<div>").addClass("flex");
+                    newMessage.append($("<div>").text(msg.content).addClass("bg-blue-200 px-3 py-2 ml-10 mt-4 rounded-lg border-black shadow-lg slide-in-blurred-left"));
+                    newMessage.append($("<div>").addClass("w-1/5 md:w-2/5 lg:w-3/5 flex-shrink-0"));
+                    $("#messages").append(newMessage);
                     window.scrollTo(0, document.body.scrollHeight);
                 }
                 if ((msg.sender.toLowerCase() != partner.toLowerCase() && msg.receiver.toLowerCase() == user.toLowerCase())) {
@@ -78,7 +92,7 @@
             return function (text, link) {
                 $('<a>')
                     .attr("href", link)
-                    .addClass('toast')
+                    .addClass('toast rounded-full')
                     .prependTo($(opts.target))
                     .text(text || opts.defaultText)
                     .queue(function (next) {
@@ -115,7 +129,7 @@
         }
         var myOptions = {
             defaultText: 'Toast, yo!',
-            displayTime: 3000,
+            displayTime: 5000,
             target: 'body'
         };
         var showtoast = new ToastBuilder(myOptions)
@@ -123,78 +137,10 @@
 </script>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
-
-    input {
-        outline: none;
-    }
-
     body {
-        font-family: "BentonSans", "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
         background-color: #3B2F63;
         background-image: -webkit-radial-gradient(50% top, rgba(84, 90, 182, 0.6) 0%, rgba(84, 90, 182, 0) 75%), -webkit-radial-gradient(right top, #794aa2 0%, rgba(121, 74, 162, 0) 57%);
         background-image: radial-gradient(at 50% top, rgba(84, 90, 182, 0.6) 0%, rgba(84, 90, 182, 0) 75%), radial-gradient(at right top, #794aa2 0%, rgba(121, 74, 162, 0) 57%);
         background-repeat: no-repeat;
-        background-size: 100% 1000px;
-        margin: 0;
-        padding: 0;
-    }
-
-    .container {
-        width: 500px;
-        margin: 100px auto;
-        background: transparent;
-        overflow: hidden;
-        border: 2px solid #fff;
-        display: flex;
-    }
-
-    #toast-btn {
-        display: inline-block;
-        float: left;
-        background: #fff;
-        padding: 10px;
-        cursor: pointer;
-        border: 2px solid #3B2F63;
-        white-space: no-wrap;
-        font-size: 20px;
-        color: #3B2F63;
-        width: 40%;
-        text-align: center;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    #toast-btn:hover {
-        background: #3B2F63;
-        color: #fff;
-    }
-
-    #textbox {
-        background: transparent;
-        border: none;
-        font-size: 20px;
-        padding: 0 10px;
-        color: #fff;
-        border-left: 2px solid #fff;
-        width: 60%;
-    }
-
-    .toast {
-        padding: 15px 20px;
-        color: #fff;
-        background: rgba(0, 0, 10, 0.7);
-        display: inline-block;
-        position: fixed;
-        top: -100px;
-        right: 15px;
-        opacity: 0;
-        transition: all 0.4s ease-out;
     }
 </style>
