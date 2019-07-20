@@ -50,12 +50,12 @@
 
 > Mobile Responsive Design 
 <p align="center">
-  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS.png?raw=true" width="450" height="600">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS.png?raw=true" width="400" height="600">
 </p>
 
 > Mobile Responsive Design 
 <p align="center">
-  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS%20(1).png?raw=true" width="450" height="600">
+  <img src="https://github.com/ziakeb/project_chatmosphere/blob/readme/public/images/Image%20from%20iOS%20(1).png?raw=true" width="400" height="600">
 </p>
 
 
