@@ -72,9 +72,9 @@ module.exports = (app, passport) => {
 
 
   app.get('/chat/:userid', (req, res) => {
-     if (req.params.username == req.user.username) {
+     if (req.params.userid == req.user.userName) {
       res.render('home', {
-        user: req.user.username
+        user: req.user.userName
       });
     }
     else {
