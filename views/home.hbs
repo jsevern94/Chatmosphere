@@ -1,46 +1,147 @@
-{{!-- <div class="container"  >
-  <div class="row" id="profile">
-    <div class="col-md">
-      <h2>Congratulations!</h2>
-      <h5>Welcome, You have logged in successfully.</h5>
-      <br>
-      <div class="card">
-        <img class="user-img" src="..." alt="user img">
-        <div class="card-body">
-          <h5 class="card-title">Your Info</h5>
-          <div class="card-text">
-            <ul id="userName">User Name</ul>
-            <ul id="email">Email</ul>
-            <ul id="firstName"=>First Name</ul>
-            <ul id="lastName"=>Last Name</ul>
-            <ul id="about">About you</ul>
-          </div>
-          <a href="#" class="btn btn-primary">Edit Profile</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <button><a class="btn btn-primary" href="/logout" role="button">Sign Out</a></button>
-  </div>
-<br> --}}
+<div class="block" style="font-family: 'McLaren', cursive;">
 
-<div class="home-page">
-    <div class="profile-container">
-    <div class="top-bg">
-      <div class="profile-img-circle">
-        <img src="/public/images/male-avatar-profile-picture-vector-260nw-221431012.webp" alt="avatar">
+  <h5 class="text-2xl md:text-4xl text-center my-10">Welcome {{{firstName}}}, you've logged in successfully.</h5>
+
+  <a class="text-2xl tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-4 my-10 ml-4 rounded-full"
+    href="/logout" role="button">Sign Out</a>
+
+  <div class="w-screen my-10 justify-left">
+
+    <div id="homePage" class="rounded-lg w-4/5 lg:w-1/5 shadow-lg text-center">
+
+      <div id="homeContent" class="py-10 pl-4 bg-white"
+        style="margin-left: 13px; border-radius: 20px; border: 1px solid black">
+        {{!-- user info --}}
+        <div id="userInfo" class="text-left">
+          <div class="container" style="background-color: #b7c9c8;
+    margin-left: -14px;
+    border-radius: 9px;
+    padding: 5px;">
+            <h5 class="userDetails"><strong>Your Info</strong></h5>
+            <hr>
+            <div class="userDetails">
+              <ul id="username">User Name: {{{username}}}</ul>
+              <hr>
+              <ul id="email">Email: {{{email}}}</ul>
+              <hr>
+              <ul id="firstName"=>First Name: {{{firstName}}}</ul>
+              <hr>
+              <ul id="lastName"=>Last Name: {{{lastName}}}</ul>
+              <hr>
+              <ul id="about">About: {{{about}}}</ul>
+              <hr>
+            </div>
+            <button
+              style="background-color: #337ab7; text-align: center; color: white; border-radius: 10px; padding: 10px;">
+              <a href="/tellusmore" role="button">Edit Your Info</a>
+            </button>
+          </div>
+        </div>
+        <br>
+        {{!-- user list --}}
+        <div id="userList" class="text-left bg-white">
+          <div class="container">
+            <h2><strong>Chat Users</strong></h2>
+            {{#each user}}
+            <ul style="    background-color: #d8d8d8;
+    border-radius: 10px;
+    margin-left: -10px;
+    margin-right: 4px;
+    padding: 2px;">
+              <p>{{{this.username}}}</p>
+              <form action="/chat/{{{this.username}}}">
+                <input type=" hidden" name="chat" id="chatting"
+                  style="border-radius: 5px; border: #b7c9c8 1px solid; width: 242px;">
+                <a class="tracking-wider bg-indigo-600 hover:bg-indigo-800 text-white py-1 px-2 rounded-full"
+                  href="/chat/{{{this.username}}}" role="button" style="background-color: #5cb85c">Chat!</a>
+              </form>
+            </ul>
+            <br>
+            {{/each}}
+          </div>
+
+        </div>
+
       </div>
+
     </div>
-    <div class="profile-content">
-      <h2 class="user">Welcome {{{user}}}</h2>
-      <h5 class="display">You have logged in successfully.</h5>
-      <h5 class="display">User Name: {{{user}}}</h5>
-      <h5 class="display">Email: {{{email}}}</h5>
-      <h5 class="display">First Name:{{{FirstName}}}</h5>
-      <h5 class="display">Last Name:{{{LastName}}}</h5>
-      <h5 class="about">About: {{{tellUsMore}}}</h5>
-      <button class="chat-button"> <a href="/views/chat.hbs"></a> Chat</button>
-      <button class="signOut-button"><a href="/logout" role="button">Sign Out</a></button>
-    </div> 
   </div>
-</div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      var user = '{{{username}}}'
+
+      $(function () {
+        var socket = io();
+        socket.on('new message', function (msg) {
+
+          console.log(msg.receiver);
+          console.log(user);
+          if (msg.receiver.toLowerCase() == user.toLowerCase()) {
+            showtoast(`You have a new message from ${msg.sender}`, `/chat/${msg.sender}`);
+          }
+
+        });
+      });
+
+
+
+      function ToastBuilder(options) {
+        // options are optional
+        var opts = options || {};
+
+        // setup some defaults
+        opts.defaultText = opts.defaultText || 'default text';
+        opts.displayTime = opts.displayTime || 5000;
+        opts.target = opts.target || 'body';
+
+        return function (text, link) {
+          $('<a>')
+            .attr("href", link)
+            .addClass('toast rounded-full')
+            .prependTo($(opts.target))
+            .text(text || opts.defaultText)
+            .queue(function (next) {
+              $(this).css({
+                'opacity': 1
+              });
+              var topOffset = 15;
+              $('.toast').each(function () {
+                var $this = $(this);
+                var height = $this.outerHeight();
+                var offset = 15;
+                $this.css('top', topOffset + 'px');
+
+                topOffset += height + offset;
+              });
+              next();
+            })
+            .delay(opts.displayTime)
+            .queue(function (next) {
+              var $this = $(this);
+              var width = $this.outerWidth() + 20;
+              $this.css({
+                'right': '-' + width + 'px',
+                'opacity': 0
+              });
+              next();
+            })
+            .delay(600)
+            .queue(function (next) {
+              $(this).remove();
+              next();
+            });
+        };
+      }
+      var myOptions = {
+        defaultText: 'Toast, yo!',
+        displayTime: 5000,
+        target: 'body'
+      };
+      var showtoast = new ToastBuilder(myOptions)
+    })
+  </script>

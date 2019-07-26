@@ -1,3 +1,5 @@
+
+var PORT = process.env.PORT || 8080;
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -7,7 +9,7 @@ var flash = require('connect-flash');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const exphbs = require('express-handlebars');
-//chat madules
+//chat
 var http = require('http').Server(app);
 var io = require('socket.io')(http, {
   pingInterval: 500
@@ -64,7 +66,7 @@ require('./config/passport/passport.js')(passport, models.user);
 io.on('connection', function (socket) {
   console.log('a user connected on socket: ' + socket.id);
   socket.on('chat message', function (msg) {
-    io.emit('chat message', msg);
+    io.emit('new message', msg);
   });
   socket.on('disconnect', function () {
     console.log('user disconnected from socket ' + socket.id);
@@ -72,19 +74,21 @@ io.on('connection', function (socket) {
   });
 });
 
-// Sync Database
 models.sequelize
-  .sync()
-  .then(function () {
-    console.log('Database Connected');
-
-    http.listen(3000, function (err) {
-      if (!err) console.log('Connected at http://localhost:3000');
-      else console.log(err);
-    });
-  })
-  .catch(function (err) {
-    console.log(err, 'Error on Database Sync. Please try again!');
+.sync()
+.then(function(){
+  console.log('Database Connected');
+  http.listen(PORT, function(err){
+    if (!err) console.log('Connected at Port:'+ PORT);
+    else console.log(err);
   });
+})
+.catch(function (err) {
+  console.log(err, 'Error on Database Sync. Please try again!');
+});
+
+
+
+
 
 module.exports = app;

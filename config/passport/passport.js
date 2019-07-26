@@ -29,7 +29,7 @@ module.exports = (passport, user) => {
         passReqToCallback: true // allows us to pass back the entire request to the callback
       },
 
-      function(req, username, password, done) {
+      function (req, username, password, done) {
         var generateHash = password => {
           return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
         };
@@ -79,7 +79,7 @@ module.exports = (passport, user) => {
         passReqToCallback: true // allows us to pass back the entire request to the callback
       },
 
-      function(req, username, password, done) {
+      function (req, username, password, done) {
         var User = user;
 
         var isValidPassword = (userpass, password) => {
